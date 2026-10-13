@@ -17,8 +17,7 @@ NOTES
 - The engine's name is overwritten with "Unknown" in the output file's metadata.
 - Decoding HEVC input works only where the device/browser can decode HEVC.
 
-LOCAL TESTING
-- Code lives in ./assets (app-*.js as an external module, style-*.css).
-- Opened by double-click (file://), the tool is hidden on purpose: this is what a saved copy looks like.
-- To test it locally, run "python -m http.server 8000" inside this folder and open http://localhost:8000
-- Online (Netlify / Vercel) it works normally.
+NOTE
+- Everything is inside index.html (no assets folder). Upload index.html (+ netlify.toml) to the ROOT of the site.
+- Online (https) it works normally. Opened from the computer (file://), the tool is hidden on purpose: this is what a saved copy looks like.
+- To test locally: run "python -m http.server 8000" in this folder and open http://localhost:8000
