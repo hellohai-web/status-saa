@@ -242,6 +242,10 @@
         const fileName = $('fileName'), fileSize = $('fileSize'), fileMeta = $('fileMeta');
         const removeFileBtn = $('removeFileBtn'), optionsWrap = $('optionsWrap'), settingsFieldset = $('settingsFieldset');
         const codecSelect = $('codecSelect'), fpsSelect = $('fpsSelect'), methodSelect = $('methodSelect');
+
+        // Set to false to show the H.265 / HEVC option again.
+        const HIDE_HEVC = true;
+        if (HIDE_HEVC) codecSelect.querySelector('option[value="hevc"]')?.remove();
         const sizeContainer = $('sizeContainer'), targetSizeInput = $('targetSizeInput');
         const resolutionContainer = $('resolutionContainer'), resolutionSelect = $('resolutionSelect');
         const sliderContainer = $('sliderContainer'), sizeSlider = $('sizeSlider'), sliderValue = $('sliderValue');
