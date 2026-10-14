@@ -6,7 +6,7 @@
     <title>Video Compressor - Wasap</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>.hidden{display:none}</style>
+    <style>.hidden{display:none}.lang-btn{background:#fff;color:#4b5563}.lang-btn[aria-pressed="true"]{background:#059669;color:#fff}</style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
@@ -201,6 +201,39 @@
             </div>
         </div>
 
+    
+        <section id="guide" class="mt-8 bg-white border border-gray-200 rounded-xl p-5 shadow-sm" aria-labelledby="guideTitle">
+            <div class="flex items-center justify-between gap-3 mb-4">
+                <h2 id="guideTitle" class="font-extrabold text-gray-900" data-i18n="title"></h2>
+                <div class="inline-flex rounded-lg border border-gray-200 overflow-hidden text-xs font-bold" role="group" aria-label="Language">
+                    <button type="button" class="lang-btn px-3 py-1.5" data-lang="en" aria-pressed="false">EN</button>
+                    <button type="button" class="lang-btn px-3 py-1.5" data-lang="ms" aria-pressed="false">BM</button>
+                </div>
+            </div>
+            <ol class="space-y-4">
+            <li class="flex gap-3">
+                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">1</span>
+                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h1"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p1"></p></div>
+            </li>
+            <li class="flex gap-3">
+                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">2</span>
+                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h2"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p2"></p></div>
+            </li>
+            <li class="flex gap-3">
+                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">3</span>
+                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h3"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p3"></p></div>
+            </li>
+            <li class="flex gap-3">
+                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">4</span>
+                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h4"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p4"></p></div>
+            </li>
+            <li class="flex gap-3">
+                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">5</span>
+                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h5"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p5"></p></div>
+            </li>
+            </ol>
+            <p class="text-sm font-semibold text-emerald-700 mt-5" data-i18n="done"></p>
+        </section>
     </main>
 
     <footer class="bg-white border-t border-gray-200 py-4 text-center text-xs text-gray-400">
@@ -227,6 +260,30 @@
             if (location.protocol === 'file:') {
                 document.querySelectorAll('main > *:not(:first-child)').forEach(function (n) { n.remove(); });
             }
+        })();
+    </script>
+
+    <script>
+        // Front-page guide with an English / Malay switch (the choice is remembered).
+        (function () {
+            var el = document.getElementById('guide');
+            if (!el) return;
+            var T = {"en": {"title": "How to use", "lang": "English", "done": "All set? Upload it to WhatsApp as usual.", "h1": "iPhone: normal MP4 video", "p1": "Tap the upload box and pick the video straight from your Photos. Nothing else to do.", "h2": "iPhone: MOV video", "p2": "Save it first so the quality and FPS stay the same. Open the video in Photos, tap <strong>Share</strong> &rarr; <strong>Save to Files</strong>, then choose <strong>Export Unmodified Original</strong>. After that, come back here, tap the upload box and pick that file from Files.", "h3": "If you see &ldquo;Target size must be smaller than the original video&rdquo;", "p3": "This happens when your video is already small. Type a number just below the original size shown in the message. Example: if it says <strong>36.35 MB</strong>, enter <strong>36.34 MB</strong> (or lower).", "h4": "Keep it within 30 MB", "p4": "Choose 30 MB or less. Bigger files may hit the WhatsApp Web limit.", "h5": "4K videos", "p5": "4K is not supported, so it is reduced to <strong>1080p</strong>. Keeping 4K would need two rounds of compression, which is not worth the time. Just use 1080p: it works well and keeps its quality and FPS."}, "ms": {"title": "Cara guna", "lang": "Bahasa Melayu", "done": "Dah siap? Muat naik ke WhatsApp macam biasa.", "h1": "iPhone: video MP4 biasa", "p1": "Tekan kotak muat naik dan pilih terus video dari Galeri (Photos). Tak perlu buat apa-apa lagi.", "h2": "iPhone: video MOV", "p2": "Simpan dulu supaya kualiti dan FPS kekal. Buka video dalam Galeri, tekan <strong>Share</strong> &rarr; <strong>Save to Files</strong>, kemudian pilih <strong>Export Unmodified Original</strong>. Lepas tu, kembali ke sini, tekan kotak muat naik dan pilih fail tu dari Files.", "h3": "Kalau nampak &ldquo;Target size must be smaller than the original video&rdquo;", "p3": "Ini berlaku bila saiz video memang dah kecil. Taip angka yang sedikit lebih kecil daripada saiz asal dalam mesej tu. Contoh: kalau tertulis <strong>36.35 MB</strong>, masukkan <strong>36.34 MB</strong> (atau kurang).", "h4": "Kekalkan dalam 30 MB", "p4": "Pilih 30 MB atau kurang. Fail yang lebih besar mungkin terkena had WhatsApp Web.", "h5": "Video 4K", "p5": "4K tidak disokong, jadi ia dikecilkan ke <strong>1080p</strong>. Nak kekalkan 4K kena compress dua kali, buang masa je. Guna 1080p sahaja: ia berfungsi elok dan kualiti serta FPS kekal."}};
+            var lang = (navigator.language || '').toLowerCase().indexOf('ms') === 0 ? 'ms' : 'en';
+            try { var saved = localStorage.getItem('guideLang'); if (saved === 'en' || saved === 'ms') lang = saved; } catch (e) {}
+            function render() {
+                el.lang = lang;
+                el.querySelectorAll('[data-i18n]').forEach(function (n) { n.innerHTML = T[lang][n.getAttribute('data-i18n')]; });
+                el.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+            }
+            el.querySelectorAll('[data-lang]').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    lang = b.getAttribute('data-lang');
+                    try { localStorage.setItem('guideLang', lang); } catch (e) {}
+                    render();
+                });
+            });
+            render();
         })();
     </script>
 
