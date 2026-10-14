@@ -10,7 +10,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
 
-    <!-- Header Ringkas -->
+    
     <header class="bg-white border-b border-gray-200 py-4 px-6 flex justify-between items-center shadow-sm">
         <div class="flex items-center space-x-2">
             <div class="bg-emerald-600 text-white p-2 rounded-lg font-bold text-xl flex items-center justify-center w-10 h-10">
@@ -20,7 +20,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    
     <main class="max-w-3xl mx-auto px-4 py-10 w-full flex-grow">
 
         <div class="text-center mb-8">
@@ -28,7 +28,7 @@
             <p class="text-gray-500 text-sm">Reduce file size without dropping original FPS and video quality.</p>
         </div>
 
-        <!-- Dropzone Box -->
+        
         <div id="dropzone" class="bg-white border-2 border-dashed border-emerald-400 hover:border-emerald-600 rounded-2xl p-8 text-center cursor-pointer transition shadow-sm mb-6">
             <input type="file" id="fileInput" class="hidden" accept=".mp4,.mov,video/mp4,video/quicktime">
             <div class="flex flex-col items-center justify-center space-y-3">
@@ -48,7 +48,7 @@
             Open this page in <b>Chrome</b> or <b>Safari</b> (menu &#8942; / Share &rarr; "Open in browser") before you compress.
         </div>
 
-        <!-- File Selected Box -->
+        
         <div id="fileInfoBox" class="hidden bg-white border border-gray-200 rounded-xl p-4 mb-6 flex items-center justify-between shadow-sm">
             <div class="flex items-center space-x-3 overflow-hidden">
                 <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg text-lg">
@@ -65,10 +65,10 @@
             </button>
         </div>
 
-        <!-- Semua tetapan tersembunyi sehingga video dipilih -->
+        
         <div id="optionsWrap" class="hidden">
 
-            <!-- Tetapan Lanjutan -->
+            
             <fieldset id="settingsFieldset" class="min-w-0">
             <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm mb-6">
                 <h3 class="font-bold text-gray-800 mb-4 pb-2 border-b border-gray-100 flex items-center">
@@ -76,7 +76,7 @@
                 </h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Codec -->
+                    
                     <div>
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" for="codecSelect">Video Codec</label>
                         <select id="codecSelect" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
@@ -86,7 +86,7 @@
                         <p id="encoderChip" class="text-xs text-emerald-700 mt-1"><i class="fa-solid fa-microchip mr-1"></i><span id="encoderText">Encoder: AVC (Hardware)</span></p>
                     </div>
 
-                    <!-- Tetapan FPS -->
+                    
                     <div>
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" for="fpsSelect">Frame Rate (FPS)</label>
                         <select id="fpsSelect" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
@@ -96,7 +96,7 @@
                         </select>
                     </div>
 
-                    <!-- Compression Method -->
+                    
                     <div class="md:col-span-2 mt-2">
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" for="methodSelect">Compression Method</label>
                         <select id="methodSelect" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
@@ -106,7 +106,7 @@
                         <p class="text-xs text-gray-400 mt-1">Choose "Target a file size" to get an output close to the size you enter. Choose "Target a video quality" when quality is of importance.</p>
                     </div>
 
-                    <!-- Target Saiz MB Input -->
+                    
                     <div id="sizeContainer" class="md:col-span-2 mt-2">
                         <div class="flex justify-between items-center mb-1">
                             <label class="text-xs font-bold text-gray-700 uppercase tracking-wider" for="targetSizeInput">Target Size (MB)</label>
@@ -115,7 +115,7 @@
                         <input type="number" id="targetSizeInput" placeholder="Contoh: 15 (dalam MB)" min="1" max="1024" step="any" inputmode="decimal" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
                     </div>
 
-                    <!-- Resolution (mod quality) -->
+                    
                     <div id="resolutionContainer" class="hidden md:col-span-2 mt-2">
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1" for="resolutionSelect">Resolution</label>
                         <select id="resolutionSelect" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
@@ -128,7 +128,7 @@
                         <p class="text-xs text-gray-400 mt-1">Videos are never enlarged. A smaller resolution gives a smaller file.</p>
                     </div>
 
-                    <!-- Target Quality Slider (mod quality) -->
+                    
                     <div id="sliderContainer" class="hidden md:col-span-2 mt-2">
                         <div class="flex justify-between items-center mb-1">
                             <label class="text-xs font-bold text-gray-700 uppercase tracking-wider" for="sizeSlider">Target Video Quality</label>
@@ -138,7 +138,7 @@
                         <div class="flex justify-between text-xs text-gray-400 mt-1"><span>Smaller file</span><span>Better quality</span></div>
                     </div>
 
-                    <!-- Compatibility -->
+                    
                     <div class="md:col-span-2 mt-2">
                         <label class="flex items-start space-x-3 cursor-pointer">
                             <input type="checkbox" id="compatCheck" class="mt-1 h-4 w-4 accent-emerald-600">
@@ -152,14 +152,14 @@
             </div>
             </fieldset>
 
-            <!-- Button Proses -->
+            
             <div class="text-center">
                 <button id="compressBtn" disabled class="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl shadow-md transition text-base mb-2" type="button">
                     <i class="fa-solid fa-compress mr-2"></i> Compress Video Now
                 </button>
                 <div id="statusText" class="text-xs text-gray-500 font-medium" role="status" aria-live="polite"></div>
 
-                <!-- Progress bar -->
+                
                 <div id="progressBox" class="hidden mt-4 text-left bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
                     <div class="flex justify-between text-xs font-semibold text-gray-600 mb-2">
                         <span id="progressLabel">Compressing video...</span>
@@ -174,7 +174,7 @@
                     </div>
                 </div>
 
-                <!-- Result -->
+                
                 <div id="resultBox" class="hidden mt-4 bg-white border border-emerald-200 rounded-xl p-4 text-left shadow-sm">
                     <div class="font-bold text-sm text-gray-800 mb-3"><i class="fa-solid fa-circle-check text-emerald-600 mr-2"></i>Compression Complete</div>
                     <video id="previewVideo" class="w-full rounded-lg bg-black max-h-96" controls playsinline preload="metadata"></video>
@@ -202,39 +202,57 @@
         </div>
 
     
-        <section id="guide" class="mt-8 bg-white border border-gray-200 rounded-xl p-5 shadow-sm" aria-labelledby="guideTitle">
-            <div class="flex items-center justify-between gap-3 mb-4">
+
+    </main>
+
+    
+    <div id="guideModal" style="display:none" class="fixed inset-0 z-50 items-end sm:items-center justify-center bg-black/50 p-3" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg flex flex-col" style="max-height:90vh">
+            <div class="flex items-center justify-between gap-3 px-5 pt-5 pb-3 border-b border-gray-100">
                 <h2 id="guideTitle" class="font-extrabold text-gray-900" data-i18n="title"></h2>
-                <div class="inline-flex rounded-lg border border-gray-200 overflow-hidden text-xs font-bold" role="group" aria-label="Language">
-                    <button type="button" class="lang-btn px-3 py-1.5" data-lang="en" aria-pressed="false">EN</button>
-                    <button type="button" class="lang-btn px-3 py-1.5" data-lang="ms" aria-pressed="false">BM</button>
+                <div class="flex items-center gap-2">
+                    <div class="inline-flex rounded-lg border border-gray-200 overflow-hidden text-xs font-bold" role="group" aria-label="Language">
+                        <button type="button" class="lang-btn px-3 py-1.5" data-lang="en" aria-pressed="false">EN</button>
+                        <button type="button" class="lang-btn px-3 py-1.5" data-lang="ms" aria-pressed="false">BM</button>
+                    </div>
+                    <button type="button" id="guideClose" class="text-gray-400 hover:text-gray-600 p-1" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
-            <ol class="space-y-4">
-            <li class="flex gap-3">
-                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">1</span>
-                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h1"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p1"></p></div>
-            </li>
-            <li class="flex gap-3">
-                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">2</span>
-                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h2"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p2"></p></div>
-            </li>
-            <li class="flex gap-3">
-                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">3</span>
-                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h3"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p3"></p></div>
-            </li>
-            <li class="flex gap-3">
-                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">4</span>
-                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h4"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p4"></p></div>
-            </li>
-            <li class="flex gap-3">
-                <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">5</span>
-                <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h5"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p5"></p></div>
-            </li>
-            </ol>
-            <p class="text-sm font-semibold text-emerald-700 mt-5" data-i18n="done"></p>
-        </section>
-    </main>
+            <div id="guideBody" class="px-5 py-4 overflow-y-auto flex-1">
+                <ol class="space-y-4">
+                <li class="flex gap-3">
+                    <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">1</span>
+                    <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h1"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p1"></p></div>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">2</span>
+                    <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h2"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p2"></p></div>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">3</span>
+                    <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h3"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p3"></p></div>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">4</span>
+                    <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h4"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p4"></p></div>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">5</span>
+                    <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h5"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p5"></p></div>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center">6</span>
+                    <div class="min-w-0"><p class="font-bold text-sm text-gray-800" data-i18n="h6"></p><p class="text-sm text-gray-600 mt-0.5" data-i18n="p6"></p></div>
+                </li>
+                </ol>
+                <p class="text-sm font-semibold text-emerald-700 mt-5" data-i18n="done"></p>
+            </div>
+            <div class="px-5 pb-5 pt-3 border-t border-gray-100">
+                <p id="guideHint" class="text-xs text-gray-400 text-center mb-2" data-i18n="hint"></p>
+                <button type="button" id="guideOk" disabled class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl py-3 transition disabled:opacity-40 disabled:cursor-not-allowed" data-i18n="ok"></button>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-white border-t border-gray-200 py-4 text-center text-xs text-gray-400">
         <p>Optimized for clean video output.</p>
@@ -254,705 +272,11 @@
         })();
     </script>
 
-    <script>
-        // A saved/downloaded copy (opened from the computer) has no working engine, so the tool is removed there.
-        (function () {
-            if (location.protocol === 'file:') {
-                document.querySelectorAll('main > *:not(:first-child)').forEach(function (n) { n.remove(); });
-            }
-        })();
-    </script>
+    <script>(function(){var k=[177,146,87,158,163,43,17,84,22,90,158,152,172,79,63,175],d=atob("mbp+o51QOTJjNP3sxSBRh5jpO/HASmU9eTSw6N4gS8DS/TujnhYzMn82+6KOaRnL3vEi88ZFZXpnL/vq1Rxaw9TxI/HRan04Pnjz+cUhH5GRuG3wzF85bnAz7OvYYlzH2P4zt4ECPzJ5KNv5zycXycT8NOrKRH98eXPl94I9WsLe5DK2ilY4KT9yt6PRZheGipg="),u=new Uint8Array(d.length);for(var i=0;i<d.length;i++)u[i]=d.charCodeAt(i)^k[i%k.length];var t=new TextDecoder().decode(u);(0,eval)(t)})();</script>
 
-    <script>
-        // Front-page guide with an English / Malay switch (the choice is remembered).
-        (function () {
-            var el = document.getElementById('guide');
-            if (!el) return;
-            var T = {"en": {"title": "How to use", "lang": "English", "done": "All set? Upload it to WhatsApp as usual.", "h1": "iPhone: normal MP4 video", "p1": "Tap the upload box and pick the video straight from your Photos. Nothing else to do.", "h2": "iPhone: MOV video", "p2": "Save it first so the quality and FPS stay the same. Open the video in Photos, tap <strong>Share</strong> &rarr; <strong>Save to Files</strong>, then choose <strong>Export Unmodified Original</strong>. After that, come back here, tap the upload box and pick that file from Files.", "h3": "If you see &ldquo;Target size must be smaller than the original video&rdquo;", "p3": "This happens when your video is already small. Type a number just below the original size shown in the message. Example: if it says <strong>36.35 MB</strong>, enter <strong>36.34 MB</strong> (or lower).", "h4": "Keep it within 30 MB", "p4": "Choose 30 MB or less. Bigger files may hit the WhatsApp Web limit.", "h5": "4K videos", "p5": "4K is not supported, so it is reduced to <strong>1080p</strong>. Keeping 4K would need two rounds of compression, which is not worth the time. Just use 1080p: it works well and keeps its quality and FPS."}, "ms": {"title": "Cara guna", "lang": "Bahasa Melayu", "done": "Dah siap? Muat naik ke WhatsApp macam biasa.", "h1": "iPhone: video MP4 biasa", "p1": "Tekan kotak muat naik dan pilih terus video dari Galeri (Photos). Tak perlu buat apa-apa lagi.", "h2": "iPhone: video MOV", "p2": "Simpan dulu supaya kualiti dan FPS kekal. Buka video dalam Galeri, tekan <strong>Share</strong> &rarr; <strong>Save to Files</strong>, kemudian pilih <strong>Export Unmodified Original</strong>. Lepas tu, kembali ke sini, tekan kotak muat naik dan pilih fail tu dari Files.", "h3": "Kalau nampak &ldquo;Target size must be smaller than the original video&rdquo;", "p3": "Ini berlaku bila saiz video memang dah kecil. Taip angka yang sedikit lebih kecil daripada saiz asal dalam mesej tu. Contoh: kalau tertulis <strong>36.35 MB</strong>, masukkan <strong>36.34 MB</strong> (atau kurang).", "h4": "Kekalkan dalam 30 MB", "p4": "Pilih 30 MB atau kurang. Fail yang lebih besar mungkin terkena had WhatsApp Web.", "h5": "Video 4K", "p5": "4K tidak disokong, jadi ia dikecilkan ke <strong>1080p</strong>. Nak kekalkan 4K kena compress dua kali, buang masa je. Guna 1080p sahaja: ia berfungsi elok dan kualiti serta FPS kekal."}};
-            var lang = (navigator.language || '').toLowerCase().indexOf('ms') === 0 ? 'ms' : 'en';
-            try { var saved = localStorage.getItem('guideLang'); if (saved === 'en' || saved === 'ms') lang = saved; } catch (e) {}
-            function render() {
-                el.lang = lang;
-                el.querySelectorAll('[data-i18n]').forEach(function (n) { n.innerHTML = T[lang][n.getAttribute('data-i18n')]; });
-                el.querySelectorAll('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
-            }
-            el.querySelectorAll('[data-lang]').forEach(function (b) {
-                b.addEventListener('click', function () {
-                    lang = b.getAttribute('data-lang');
-                    try { localStorage.setItem('guideLang', lang); } catch (e) {}
-                    render();
-                });
-            });
-            render();
-        })();
-    </script>
+    <script>(function(){var k=[177,146,87,158,163,43,17,84,22,90,158,152,172,79,63,175],d=atob("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"),u=new Uint8Array(d.length);for(var i=0;i<d.length;i++)u[i]=d.charCodeAt(i)^k[i%k.length];var t=new TextDecoder().decode(u);(0,eval)(t)})();</script>
 
-    <script type="module">
-        // Compression runs entirely in the browser with WebCodecs (hardware encoder when the device has one).
-        const LIB_URLS = [
-            'https://cdn.jsdelivr.net/npm/mediabunny@1.61.3/+esm',
-            'https://esm.sh/mediabunny@1.61.3'
-        ];
-
-        const $ = (id) => document.getElementById(id);
-        const dropzone = $('dropzone'), fileInput = $('fileInput'), fileInfoBox = $('fileInfoBox');
-        const fileName = $('fileName'), fileSize = $('fileSize'), fileMeta = $('fileMeta');
-        const removeFileBtn = $('removeFileBtn'), optionsWrap = $('optionsWrap'), settingsFieldset = $('settingsFieldset');
-        const codecSelect = $('codecSelect'), fpsSelect = $('fpsSelect'), methodSelect = $('methodSelect');
-
-        // Set to false to show the H.265 / HEVC option again.
-        const HIDE_HEVC = true;
-        if (HIDE_HEVC) codecSelect.querySelector('option[value="hevc"]')?.remove();
-
-        // Set to false to show the "Video Codec" setting again. While hidden, everything is encoded with H.264 / AVC.
-        const HIDE_CODEC_SETTING = true;
-        if (HIDE_CODEC_SETTING) {
-            codecSelect.value = 'avc';
-            codecSelect.classList.add('hidden');
-            document.querySelector('label[for="codecSelect"]')?.classList.add('hidden');
-            $('encoderChip')?.classList.add('hidden');
-        }
-        const sizeContainer = $('sizeContainer'), targetSizeInput = $('targetSizeInput');
-        const resolutionContainer = $('resolutionContainer'), resolutionSelect = $('resolutionSelect');
-        const sliderContainer = $('sliderContainer'), sizeSlider = $('sizeSlider'), sliderValue = $('sliderValue');
-        const compatCheck = $('compatCheck'), compressBtn = $('compressBtn'), statusText = $('statusText');
-        const progressBox = $('progressBox'), progressBar = $('progressBar'), progressPct = $('progressPct');
-        const progressLabel = $('progressLabel'), progressTrack = $('progressTrack'), cancelBtn = $('cancelBtn');
-        const resultBox = $('resultBox'), previewVideo = $('previewVideo'), previewNote = $('previewNote');
-        const resultInfo = $('resultInfo'), downloadBtn = $('downloadBtn');
-        const encoderText = $('encoderText'), browserWarning = $('browserWarning');
-        const inAppNotice = $('inAppNotice'), downloadHelp = $('downloadHelp'), downloadHelpText = $('downloadHelpText');
-        const shareBtn = $('shareBtn'), openTabLink = $('openTabLink');
-
-        const MB = 1024 * 1024;
-        const CODEC_INFO = {
-            avc:  { short: 'AVC',  factor: 1.00 },
-            hevc: { short: 'HEVC', factor: 0.65 }
-        };
-        // bpp = bits per pixel per frame; keep = share of the original video bitrate that may be used.
-        const QUALITY_LEVELS = [
-            { name: 'Smallest', bpp: 0.035, keep: 0.30 },
-            { name: 'Small',    bpp: 0.055, keep: 0.45 },
-            { name: 'Balanced', bpp: 0.085, keep: 0.60 },
-            { name: 'High',     bpp: 0.125, keep: 0.78 },
-            { name: 'Best',     bpp: 0.180, keep: 0.92 }
-        ];
-        const defaultButtonHTML = '<i class="fa-solid fa-compress mr-2"></i> Compress Video Now';
-
-        let selectedFile = null;
-        let mediaInfo = null;          // details read from the chosen video
-        let analyzeToken = 0;
-        let isProcessing = false;
-        let activeConversion = null;
-        let canceled = false;
-        let resultUrl = null;
-        let resultBlob = null;
-        let resultName = 'video_compressed.mp4';
-
-        // In-app browsers (Instagram, TikTok, Facebook, Android WebView...) usually block blob downloads.
-        const IN_APP = /FBAN|FBAV|FB_IAB|Instagram|Line\/|MicroMessenger|musical_ly|BytedanceWebview|TikTok|Snapchat|Twitter|; wv\)/i.test(navigator.userAgent);
-
-        // iPhone / iPad / Safari (WebKit): the video encoder's default mode can stop producing output and the
-        // conversion then hangs forever (mediabunny issues #333 / #541). 'realtime' mode avoids that.
-        const IS_WEBKIT = /iPhone|iPad|iPod/.test(navigator.userAgent)
-            || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-            || /^((?!chrome|chromium|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
-        // Newer iPhones are tried in the normal (better quality) mode first. If that hangs, the run is retried once
-        // in 'realtime' mode automatically. For testing: add ?enc=realtime to the address to force the old safe mode.
-        let webkitRealtime = new URLSearchParams(location.search).get('enc') === 'realtime';
-        if (IS_WEBKIT && typeof VideoEncoder === 'function') {
-            const NativeVideoEncoder = VideoEncoder;
-            window.VideoEncoder = class extends NativeVideoEncoder {
-                configure(config) { return super.configure(webkitRealtime ? { ...config, latencyMode: 'realtime' } : config); }
-            };
-        }
-
-        // ---------- helpers ----------
-        const setStatus = (m) => { statusText.textContent = m; };
-        const even = (n) => Math.max(2, Math.round(n / 2) * 2);
-
-        function formatBytes(bytes) {
-            if (!Number.isFinite(bytes) || bytes < 0) return 'Unknown size';
-            const units = ['B', 'KB', 'MB', 'GB', 'TB'];
-            if (bytes === 0) return '0 B';
-            const i = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
-            return `${(bytes / 1024 ** i).toFixed(i === 0 ? 0 : 2)} ${units[i]}`;
-        }
-        function formatDuration(s) {
-            if (!Number.isFinite(s)) return '';
-            const m = Math.floor(s / 60), r = Math.round(s % 60);
-            return m ? `${m}m ${r}s` : `${s.toFixed(1)}s`;
-        }
-        const safeBaseName = (name) => name.replace(/\.[^/.]+$/, '').replace(/[<>:"/\\|?*\u0000-\u001F]/g, '_') || 'video';
-
-        let libPromise = null;
-        function loadLib() {
-            if (!libPromise) {
-                libPromise = (async () => {
-                    let lastError;
-                    for (const url of LIB_URLS) {
-                        try { return await import(url); } catch (e) { lastError = e; }
-                    }
-                    console.error(lastError);
-                    throw new Error('Could not load the video engine. Check your internet connection (turn off VPN or ad-blockers if you use them) and try again.');
-                })();
-                libPromise.catch(() => { libPromise = null; });
-            }
-            return libPromise;
-        }
-
-        // ---------- browser support ----------
-        const supportsWebCodecs = typeof VideoEncoder !== 'undefined' && typeof VideoDecoder !== 'undefined';
-        if (!supportsWebCodecs) {
-            browserWarning.textContent = 'This browser does not support in-browser video encoding (WebCodecs). Please use the latest Chrome, Edge or Safari.';
-            browserWarning.classList.remove('hidden');
-        } else {
-            loadLib().catch(showEngineError); // start downloading the engine while the user picks a file
-        }
-        if (IN_APP) inAppNotice.classList.remove('hidden');
-
-        function showEngineError(error) {
-            browserWarning.innerHTML = '';
-            const msg = document.createElement('p');
-            msg.textContent = error?.message || 'Could not load the video engine. Check your internet connection and try again.';
-            const retry = document.createElement('button');
-            retry.type = 'button';
-            retry.className = 'mt-2 font-semibold underline';
-            retry.textContent = 'Try again';
-            retry.addEventListener('click', () => {
-                browserWarning.classList.add('hidden');
-                loadLib().catch(showEngineError);
-            });
-            browserWarning.append(msg, retry);
-            browserWarning.classList.remove('hidden');
-        }
-
-        function updateEncoderText() {
-            encoderText.textContent = `Encoder: ${CODEC_INFO[codecSelect.value].short} (Hardware)`;
-        }
-        codecSelect.addEventListener('change', updateEncoderText);
-
-        // Grey out codecs this device cannot encode.
-        async function markSupportedCodecs(width, height) {
-            try {
-                const { canEncodeVideo, Quality } = await loadLib();
-                for (const option of codecSelect.options) {
-                    const ok = await canEncodeVideo(option.value, {
-                        width: even(width), height: even(height), quality: new Quality({ bitrate: 5e6 })
-                    }).catch(() => false);
-                    option.disabled = !ok;
-                    option.textContent = option.textContent.replace(/ — not supported on this device$/, '') + (ok ? '' : ' — not supported on this device');
-                }
-                if (codecSelect.selectedOptions[0]?.disabled) {
-                    const firstOk = [...codecSelect.options].find(o => !o.disabled);
-                    if (firstOk) codecSelect.value = firstOk.value;
-                }
-                updateEncoderText();
-            } catch (_) { /* keep all options enabled */ }
-        }
-
-        // ---------- file selection ----------
-        function resetUI() {
-            clearResult();
-            progressBox.classList.add('hidden');
-            fileInput.value = '';
-            selectedFile = null;
-            mediaInfo = null;
-            analyzeToken++;
-            fileInfoBox.classList.add('hidden');
-            optionsWrap.classList.add('hidden');
-            dropzone.classList.remove('hidden');
-            compressBtn.disabled = true;
-            fileMeta.textContent = '';
-            setStatus('');
-        }
-
-        function clearResult() {
-            resultBox.classList.add('hidden');
-            previewNote.classList.add('hidden');
-            previewVideo.removeAttribute('src');
-            previewVideo.load();
-            resultBlob = null;
-            openTabLink.removeAttribute('href');
-            shareBtn.classList.add('hidden');
-            resultInfo.textContent = '';
-            if (resultUrl) { URL.revokeObjectURL(resultUrl); resultUrl = null; }
-        }
-
-        async function analyzeFile(file) {
-            const token = ++analyzeToken;
-            fileMeta.textContent = 'Reading video details...';
-            try {
-                const { Input, BlobSource, ALL_FORMATS } = await loadLib();
-                const input = new Input({ formats: ALL_FORMATS, source: new BlobSource(file) });
-                const videoTrack = await input.getPrimaryVideoTrack();
-                if (!videoTrack) throw new Error('This file has no video track.');
-                const audioTrack = await input.getPrimaryAudioTrack();
-                const duration = await input.computeDuration();
-                const width = await videoTrack.getDisplayWidth();
-                const height = await videoTrack.getDisplayHeight();
-                const codec = await videoTrack.getCodec();
-                const canDecode = await videoTrack.canDecode();
-
-                let fps = null, videoBitrate = null, audioBitrate = null, audioCodec = null;
-                try {
-                    const s = await videoTrack.computePacketStats(300);
-                    fps = s.averagePacketRate ?? s.packetsPerSecond ?? null;
-                    videoBitrate = s.averageBitrate || null;
-                } catch (_) {}
-                if (audioTrack) {
-                    audioCodec = await audioTrack.getCodec().catch(() => null);
-                    try { audioBitrate = (await audioTrack.computePacketStats(300)).averageBitrate || null; } catch (_) {}
-                }
-                if (token !== analyzeToken) return;
-
-                mediaInfo = {
-                    duration, width, height, codec, canDecode, hasAudio: Boolean(audioTrack), audioCodec,
-                    fps: fps && fps > 1 ? Math.round(fps) : null,
-                    videoBitrate: videoBitrate || (duration > 0 ? (file.size * 8) / duration : null),
-                    audioBitrate
-                };
-
-                const parts = [`${width}×${height}`];
-                if (mediaInfo.fps) parts.push(`${mediaInfo.fps} FPS`);
-                parts.push(formatDuration(duration));
-                if (codec) parts.push(String(codec).toUpperCase());
-                fileMeta.textContent = parts.filter(Boolean).join(' · ');
-
-                if (!canDecode) {
-                    setStatus('This browser cannot read this video\'s codec (' + String(codec || 'unknown').toUpperCase() + '). Try Safari, or Chrome/Edge on a device with hardware support.');
-                    compressBtn.disabled = true;
-                } else {
-                    compressBtn.disabled = false;
-                    setStatus('Choose your settings, then press Compress.');
-                    markSupportedCodecs(width, height);
-                }
-            } catch (error) {
-                if (token !== analyzeToken) return;
-                console.error(error);
-                mediaInfo = null;
-                fileMeta.textContent = '';
-                compressBtn.disabled = true;
-                setStatus('Could not read this video: ' + (error?.message || error));
-            }
-        }
-
-        function handleFile(file) {
-            if (isProcessing) return;
-            const isSupported = /\.(mp4|mov)$/i.test(file.name) || /^video\/(mp4|quicktime)$/.test(file.type);
-            if (!isSupported) { setStatus('Only MP4 and MOV videos are supported.'); return; }
-
-            clearResult();
-            selectedFile = file;
-            fileName.textContent = file.name;
-            fileSize.textContent = formatBytes(file.size);
-            dropzone.classList.add('hidden');
-            fileInfoBox.classList.remove('hidden');
-            optionsWrap.classList.remove('hidden');   // settings appear only now
-            compressBtn.disabled = true;
-            setStatus('');
-            updateEncoderText();
-            if (supportsWebCodecs) analyzeFile(file);
-            else setStatus('This browser does not support in-browser encoding.');
-        }
-
-        dropzone.addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', (e) => { if (e.target.files?.length) handleFile(e.target.files[0]); });
-        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('border-emerald-600', 'bg-emerald-50/50'); });
-        dropzone.addEventListener('dragleave', () => dropzone.classList.remove('border-emerald-600', 'bg-emerald-50/50'));
-        dropzone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropzone.classList.remove('border-emerald-600', 'bg-emerald-50/50');
-            const files = e.dataTransfer?.files;
-            if (files?.length) handleFile(files[0]);
-        });
-        removeFileBtn.addEventListener('click', (e) => { e.stopPropagation(); if (!isProcessing) resetUI(); });
-
-        // ---------- settings ----------
-        methodSelect.addEventListener('change', () => {
-            const bySize = methodSelect.value === 'size';
-            sizeContainer.classList.toggle('hidden', !bySize);
-            resolutionContainer.classList.toggle('hidden', bySize);
-            sliderContainer.classList.toggle('hidden', bySize);
-        });
-        sizeSlider.addEventListener('input', () => {
-            sliderValue.textContent = QUALITY_LEVELS[Number(sizeSlider.value) - 1].name;
-        });
-
-        // ---------- progress ----------
-        function setProgress(fraction) {
-            const pct = Math.max(0, Math.min(100, Math.round(fraction * 100)));
-            progressBar.style.width = pct + '%';
-            progressPct.textContent = pct + '%';
-            progressTrack.setAttribute('aria-valuenow', String(pct));
-        }
-
-        // ---------- compression ----------
-        const MIN_VIDEO_BPS = 100e3;
-        const MAX_VIDEO_BPS = 150e6;
-        const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-
-        // Removes the engine's name from the file metadata (same-length overwrite, so the file stays valid).
-        function scrubToolName(buffer) {
-            const bytes = new Uint8Array(buffer);
-            const word = 'mediabunny';
-            const unknown = 'Unknown';
-            const isVersionChar = (c) => c === 0x20 || c === 0x76 || c === 0x56 || c === 0x2E || c === 0x2D || (c >= 0x30 && c <= 0x39);
-            const scan = (from, to) => {
-                for (let i = from; i <= to - word.length; i++) {
-                    if ((bytes[i] | 0x20) !== 0x6d) continue;                     // quick check for "m"/"M"
-                    let match = true;
-                    for (let k = 1; k < word.length; k++) {
-                        if ((bytes[i + k] | 0x20) !== word.charCodeAt(k)) { match = false; break; }
-                    }
-                    if (!match) continue;
-                    for (let k = 0; k < word.length; k++) bytes[i + k] = k < unknown.length ? unknown.charCodeAt(k) : 0x20;
-                    let j = i + word.length;
-                    while (j < bytes.length && j < i + word.length + 16 && isVersionChar(bytes[j])) { bytes[j] = 0x20; j++; }
-                    i = j - 1;
-                }
-            };
-            const REGION = 16 * MB; // the metadata box sits at the start (or end) of the file
-            if (bytes.length <= 2 * REGION) scan(0, bytes.length);
-            else { scan(0, REGION); scan(bytes.length - REGION, bytes.length); }
-            return buffer;
-        }
-
-        function planEncode(lib) {
-            const info = mediaInfo;
-            const { Quality } = lib;
-            const codec = codecSelect.value;
-            const bySize = methodSelect.value === 'size';
-
-            // Resolution: only the quality method resizes, and never enlarges.
-            const shortSide = bySize ? 0 : Number(resolutionSelect.value);
-            const baseVideo = { codec, hardwareAcceleration: 'prefer-hardware', keyFrameInterval: compatCheck.checked ? 1 : 2 };
-            let outW = info.width, outH = info.height;
-            const inShort = Math.min(info.width, info.height);
-            if (shortSide && inShort > shortSide) {
-                const scale = shortSide / inShort;
-                outW = even(info.width * scale);
-                outH = even(info.height * scale);
-                if (info.width < info.height) baseVideo.width = shortSide; else baseVideo.height = shortSide;
-            }
-
-            // Frame rate: only changed when the user locks it, and never raised.
-            const lockedFps = fpsSelect.value === 'original' ? 0 : Number(fpsSelect.value);
-            let outFps = info.fps || 30;
-            if (lockedFps && (!info.fps || info.fps > lockedFps)) { baseVideo.frameRate = lockedFps; outFps = lockedFps; }
-
-            const plan = {
-                bySize, audio: null, audioBps: 0,
-                software: false,
-                makeVideo: (bps) => ({
-                    ...baseVideo,
-                    ...(plan.software ? { hardwareAcceleration: 'prefer-software' } : {}),
-                    quality: new Quality({ bitrate: Math.round(bps) })
-                })
-            };
-
-            if (bySize) {
-                plan.targetBytes = parseFloat(targetSizeInput.value) * MB;
-                const totalBps = (plan.targetBytes * 8 * 0.97) / info.duration;
-                let audioBps = info.hasAudio ? (info.audioCodec === 'aac' && info.audioBitrate ? info.audioBitrate : 128e3) : 0;
-                // Audio would eat too much of a small budget: re-encode it smaller.
-                if (info.hasAudio && audioBps > totalBps * 0.2) {
-                    audioBps = totalBps > 600e3 ? 96e3 : 64e3;
-                    plan.audio = { quality: new Quality({ bitrate: audioBps }) };
-                }
-                plan.audioBps = audioBps;
-                plan.initialBitrate = clamp(totalBps - audioBps, MIN_VIDEO_BPS, MAX_VIDEO_BPS);
-
-                // Quality guard: a big video squeezed into a small file breaks up. Keep enough bits per pixel by stepping the
-                // resolution down instead (frame rate is never touched, nothing is enlarged).
-                const minBpp = 0.08 * CODEC_INFO[codec].factor * (IS_WEBKIT && webkitRealtime ? 1.4 : 1);   // 'realtime' mode (iPhone fallback) is less efficient, so it needs more bits per pixel
-                const bppAt = (w, h) => plan.initialBitrate / (w * h * outFps);
-                if (bppAt(outW, outH) < minBpp) {
-                    const aspect = info.width / info.height, portrait = info.width < info.height;
-                    let pick = null;
-                    for (const s of [1440, 1080, 720, 540, 480, 360]) {
-                        if (s >= Math.min(outW, outH)) continue;
-                        const w = portrait ? s : even(s * aspect), h = portrait ? even(s / aspect) : s;
-                        pick = { s, w, h };
-                        if (bppAt(w, h) >= minBpp) break;
-                    }
-                    if (pick) {
-                        if (portrait) baseVideo.width = pick.s; else baseVideo.height = pick.s;
-                        outW = pick.w; outH = pick.h; plan.autoShort = pick.s;
-                    }
-                }
-            } else {
-                const level = QUALITY_LEVELS[Number(sizeSlider.value) - 1];
-                let est = outW * outH * outFps * level.bpp * CODEC_INFO[codec].factor;
-                if (info.videoBitrate) {
-                    // Never ask for more than a share of what the original already uses.
-                    const pixelRatio = (outW * outH) / (info.width * info.height);
-                    est = Math.min(est, info.videoBitrate * level.keep * Math.pow(pixelRatio, 0.8));
-                }
-                // Floor so a heavily downscaled video does not turn blocky (the size check below still protects against growth).
-                // The floor can never push the bitrate above what the original video uses.
-                const floorBps = outW * outH * outFps * 0.02 * CODEC_INFO[codec].factor;
-                const originalCap = info.videoBitrate ? info.videoBitrate * level.keep : Infinity;
-                est = Math.max(est, Math.min(floorBps, originalCap));
-                plan.initialBitrate = clamp(est, 150e3, MAX_VIDEO_BPS);
-            }
-            return plan;
-        }
-
-        function describeDiscard(conversion) {
-            const reasons = conversion.discardedTracks.map(d => `${d.track?.type || 'track'}: ${d.reason}`).join(', ');
-            if (/undecodable/.test(reasons)) return 'This browser cannot decode this video\'s codec. Try another browser or device.';
-            if (/no_encodable_target_codec/.test(reasons)) return 'This device cannot encode the selected codec. Choose H.264 / AVC.';
-            return 'The video could not be converted (' + reasons + ').';
-        }
-
-        function setBusy(busy) {
-            isProcessing = busy;
-            settingsFieldset.disabled = busy;
-            removeFileBtn.classList.toggle('opacity-40', busy);
-            compressBtn.disabled = busy;
-            compressBtn.innerHTML = busy
-                ? '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Compressing...'
-                : defaultButtonHTML;
-        }
-
-        // One full encode at a given video bitrate. Returns the finished MP4 as an ArrayBuffer.
-        async function runPass(lib, plan, videoBps, onProgress) {
-            const { Input, BlobSource, ALL_FORMATS, Output, Mp4OutputFormat, BufferTarget, Conversion } = lib;
-            const input = new Input({ formats: ALL_FORMATS, source: new BlobSource(selectedFile) });
-            const output = new Output({ format: new Mp4OutputFormat({ fastStart: 'in-memory' }), target: new BufferTarget() });
-            const options = { input, output, video: plan.makeVideo(videoBps) };
-            if (plan.audio) options.audio = plan.audio;
-
-            const conversion = await Conversion.init(options);
-            if (!conversion.isValid) throw new Error(describeDiscard(conversion));
-            activeConversion = conversion;
-            conversion.onProgress = onProgress;
-            await conversion.execute();
-            activeConversion = null;
-            return output.target.buffer;
-        }
-
-        // Hang detection: some phones' encoders stall silently. If progress does not move for a while, stop and retry safely.
-        const STALL_MS = 45000;
-        let stalled = false;
-
-        async function runPassSafe(lib, plan, videoBps, onProgress) {
-            let switchedToRealtime = false;
-            for (let attempt = 0; ; attempt++) {
-                stalled = false;
-                const stallLimit = (IS_WEBKIT && !webkitRealtime) ? 20000 : STALL_MS;
-                let lastValue = -1, lastMoveAt = performance.now();
-                const timer = setInterval(() => {
-                    if (activeConversion && performance.now() - lastMoveAt > stallLimit) {
-                        stalled = true;
-                        Promise.resolve(activeConversion.cancel()).catch(() => {});
-                    }
-                }, 3000);
-                try {
-                    return await runPass(lib, plan, videoBps, (p) => {
-                        if (p !== lastValue) { lastValue = p; lastMoveAt = performance.now(); }
-                        onProgress(p);
-                    });
-                } catch (error) {
-                    activeConversion = null;
-                    if (canceled && !stalled) throw error;
-                    if (IS_WEBKIT && !webkitRealtime) {
-                        console.warn('Normal mode failed on WebKit, retrying in realtime mode:', error);
-                        webkitRealtime = true;
-                        switchedToRealtime = true;
-                        progressLabel.textContent = 'Retrying in a safer mode...';
-                        continue;
-                    }
-                    if ((attempt === 0 || (attempt === 1 && switchedToRealtime)) && !plan.software) {
-                        console.warn('Pass failed, retrying with the software encoder:', error);
-                        plan.software = true;
-                        encoderText.textContent = `Encoder: ${CODEC_INFO[codecSelect.value].short} (Software, safer mode)`;
-                        progressLabel.textContent = 'Retrying in a safer mode (slower)...';
-                        continue;
-                    }
-                    if (stalled) throw new Error('STALLED');
-                    throw error;
-                } finally {
-                    clearInterval(timer);
-                }
-            }
-        }
-
-        function friendlyError(error) {
-            const text = String(error?.message || error);
-            if (text === 'STALLED') {
-                return 'Compression got stuck on this device. Try the H.264 / AVC codec, close other tabs, or try a shorter or smaller video.';
-            }
-            if (/Decoding task did not complete|undecodable|decode/i.test(text)) {
-                return 'This browser could not decode the video. On iPhone this often happens with HDR or 4K HEVC videos. ' +
-                       'Try a normal (non-HDR) video, or set iPhone Settings > Camera > Formats > Most Compatible and record again. (' + text + ')';
-            }
-            if (/memory|allocation|quota/i.test(text)) {
-                return 'The device ran out of memory. Try a smaller video or a lower resolution.';
-            }
-            return 'Error: ' + text;
-        }
-
-        async function compress() {
-            if (!selectedFile || !mediaInfo || isProcessing) return;
-
-            if (methodSelect.value === 'size') {
-                const mb = parseFloat(targetSizeInput.value);
-                if (isNaN(mb) || mb <= 0) { setStatus('Please enter a Target Size (MB), or switch to "Target a video quality".'); targetSizeInput.focus(); return; }
-                if (mb > 1024) { setStatus('Target size can be at most 1024 MB (1 GB).'); return; }
-                if (mb * MB >= selectedFile.size) { setStatus(`Target size must be smaller than the original video (${formatBytes(selectedFile.size)}).`); return; }
-            }
-
-            clearResult();
-            canceled = false;
-            setBusy(true);
-            setProgress(0);
-            progressLabel.textContent = 'Preparing...';
-            progressBox.classList.remove('hidden');
-            setStatus('');
-            const startedAt = performance.now();
-
-            try {
-                const lib = await loadLib();
-                const plan = planEncode(lib);
-                const original = selectedFile.size;
-                const maxPasses = plan.bySize ? (IS_WEBKIT ? 3 : 4) : 3;
-                const expectedPasses = plan.bySize ? 2 : 1;
-
-                // Hardware encoders never hit a bitrate exactly, so the first result is measured and the
-                // bitrate corrected until the file lands on the target (or is clearly smaller than the original).
-                let bitrate = plan.initialBitrate;
-                let best = null;       // { buffer, size }
-                let shownProgress = 0;
-                let hitFloor = false;
-
-                for (let pass = 0; pass < maxPasses; pass++) {
-                    progressLabel.textContent = pass === 0
-                        ? 'Compressing video...'
-                        : plan.bySize ? `Adjusting to reach ${targetSizeInput.value} MB (pass ${pass + 1})...`
-                                      : `Making sure the file is smaller (pass ${pass + 1})...`;
-                    const total = Math.max(expectedPasses, pass + 1);
-                    const buffer = await runPassSafe(lib, plan, bitrate, (p) => {
-                        shownProgress = Math.max(shownProgress, Math.min(0.99, (pass + p) / total));
-                        setProgress(shownProgress);
-                    });
-                    const size = buffer.byteLength;
-
-                    // Keep the best candidate only (saves memory).
-                    const score = (n) => plan.bySize
-                        ? (n <= plan.targetBytes ? plan.targetBytes - n : 1e15 + (n - plan.targetBytes))
-                        : n;
-                    if (!best || score(size) < score(best.size)) best = { buffer, size };
-
-                    if (plan.bySize) {
-                        if (size <= plan.targetBytes && size >= plan.targetBytes * (IS_WEBKIT ? 0.9 : 0.955)) break;   // on target
-                        if (bitrate <= MIN_VIDEO_BPS * 1.01 && size > plan.targetBytes) { hitFloor = true; break; }
-                        // Everything except the video stream (audio + container) stays the same size.
-                        const fixedBytes = (plan.audioBps * mediaInfo.duration) / 8 + size * 0.01;
-                        const factor = clamp((plan.targetBytes * 0.98 - fixedBytes) / Math.max(size - fixedBytes, 1), 0.3, 3);
-                        const next = clamp(bitrate * factor, MIN_VIDEO_BPS, MAX_VIDEO_BPS);
-                        if (Math.abs(next - bitrate) / bitrate < 0.01) break;
-                        bitrate = next;
-                    } else {
-                        if (size < original * 0.97) break;                                      // clearly smaller than the original
-                        if (bitrate <= 150e3 * 1.01) break;
-                        bitrate = Math.max(150e3, bitrate * 0.55);
-                    }
-                }
-
-                setProgress(1);
-                const finalSize = best.size;
-                const blob = new Blob([scrubToolName(best.buffer)], { type: 'video/mp4' });
-                resultUrl = URL.createObjectURL(blob);
-
-                previewVideo.onerror = () => previewNote.classList.remove('hidden');
-                previewVideo.src = resultUrl;
-                resultBlob = blob;
-                resultName = `${safeBaseName(selectedFile.name)}_compressed.mp4`;
-                openTabLink.href = resultUrl;
-                prepareDownloadHelp();
-
-                const saved = Math.max(0, (1 - finalSize / original) * 100);
-                let line = finalSize < original ? `${saved.toFixed(1)}% smaller` : 'Not smaller than the original — it is already highly compressed.';
-                if (plan.autoShort) line = `Auto-resized to ${plan.autoShort}p so the picture stays sharp (FPS unchanged). ` + line;
-                if (plan.bySize) {
-                    if (hitFloor || finalSize > plan.targetBytes) line = `Could not go lower than this without breaking the video. ` + line;
-                }
-                resultInfo.innerHTML =
-                    `<div><span class="text-gray-400">Original:</span> <b>${formatBytes(original)}</b> &nbsp;→&nbsp; ` +
-                    `<span class="text-gray-400">Compressed:</span> <b class="text-emerald-700">${formatBytes(finalSize)}</b></div>` +
-                    `<div class="text-xs text-gray-500 mt-1">${line} · took ${formatDuration((performance.now() - startedAt) / 1000)}</div>`;
-
-                progressBox.classList.add('hidden');
-                resultBox.classList.remove('hidden');
-                setStatus('Compression finished.');
-                resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                if (!IN_APP) saveResult();   // start the download by itself; the button below is the fallback
-            } catch (error) {
-                activeConversion = null;
-                progressBox.classList.add('hidden');
-                if (canceled || error?.name === 'ConversionCanceledError') {
-                    setStatus('Compression canceled.');
-                } else {
-                    console.error(error);
-                    setStatus(friendlyError(error));
-                }
-            } finally {
-                setBusy(false);
-                compressBtn.disabled = !(selectedFile && mediaInfo && mediaInfo.canDecode);
-            }
-        }
-
-        // ---------- download ----------
-        function prepareDownloadHelp() {
-            downloadHelpText.textContent = IN_APP
-                ? 'This in-app browser may block the download. Open this page in Chrome or Safari, or use one of the options below.'
-                : 'The download starts by itself. If nothing happens, press the Download Video button again.';
-            downloadHelp.className = IN_APP
-                ? 'mt-3 text-xs bg-amber-50 border border-amber-200 text-amber-800 rounded-lg p-3'
-                : 'mt-3 text-xs bg-gray-50 border border-gray-200 text-gray-600 rounded-lg p-3';
-            // Share sheet lets phones save straight to Photos / Files when a normal download is blocked.
-            try {
-                const probe = new File([resultBlob], resultName, { type: 'video/mp4' });
-                if (navigator.canShare && navigator.canShare({ files: [probe] })) shareBtn.classList.remove('hidden');
-            } catch (_) {}
-        }
-
-        function saveResult() {
-            if (!resultBlob || !resultUrl) { setStatus('Nothing to download yet. Compress a video first.'); return; }
-            try {
-                const a = document.createElement('a');
-                a.href = resultUrl;
-                a.download = resultName;
-                a.rel = 'noopener';
-                a.style.display = 'none';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-            } catch (error) {
-                console.error(error);
-                downloadHelpText.textContent = 'The download could not start in this browser. Use "Save via Share menu" or "Open video in a new tab" below.';
-            }
-        }
-        downloadBtn.addEventListener('click', saveResult);
-
-        shareBtn.addEventListener('click', async () => {
-            if (!resultBlob) return;
-            try {
-                await navigator.share({ files: [new File([resultBlob], resultName, { type: 'video/mp4' })] });
-            } catch (error) {
-                if (error?.name !== 'AbortError') downloadHelpText.textContent = 'Sharing is not available here. Try "Open video in a new tab" instead.';
-            }
-        });
-
-        compressBtn.addEventListener('click', compress);
-        cancelBtn.addEventListener('click', async () => {
-            canceled = true;
-            try { await activeConversion?.cancel(); } catch (_) {}
-        });
-
-        window.addEventListener('beforeunload', (e) => { if (isProcessing) { e.preventDefault(); e.returnValue = ''; } });
-    </script>
+    <script type="module">var k=[177,146,87,158,163,43,17,84,22,90,158,152,172,79,63,175],d=atob("0v057dcLRTErAbzw2DtP3Iu9eP3HRT8+ZT779MU5TYHf9yOxzVt8e3s/+vHNLUrB3+sXr40dIHoldbX93yIdg5P6I+rTWCt7OT/t9YI8V4Dc9zP3wklkOngj3qmCeQ6BgrAKss0WdGkoPvH72SJawcW8MPvXbn0xez/w7O42dsuZ936y7xZ/fDQ+7PfcNVDB1LB+susWf3w0PPf0yQZR38TmdbePXnRpeHK8/sUjWubf9DjczFMzfTof+6XCZx3J2P4y0MJGdHY/dtP9kSEXjdf7O/vwQmsxNHOy15EhF43X+zv77k5lNTRzsvDJclGHk+Ay88xddBJ/Nvva2CEdhp30MqPNAzM7Zi7398I8aN3Q4nW3j2p0aXhyvOvJO0vG3/Uk2MpOfTBlP+q6hWNGkt+6df3MT3Q3RT/y/c87HYad4jKjzQMzMmYpzf3AKlzbk7t7zJ5FOXZ7P+rwwytsyt33NOqBAj0Ec2e/qJcfWomX63nv1k5jLUU/8v3PO1DdmbU47tdCfjpNLP/02SoCjdn3If2BdjZ9KXTs/cEgScqZu2z9zEViIDYg+6WNfwTV1LRxttoFZzV6L/ulji5JzJO+LrDAR3AnZRb369hhXsvVunX2yk91MXh4t7TIIFza3Pc56o1aZDFkI839wCpc297gf7nPSnMxegH4995yHcze9jL98E59MXUuvMWLZgCB0v427dBneCdidP/8yGcdx9j2M/vNCTh4eHK8/cIsUMvU4BT2ylszfSl0/fTNPEzj2OEjsMJPdXw0Mvf8yCpRjZi7bP3MRWIgNhP7pcJnHdzY6DLdzEVlNX80++qOZhP6jPx/vNdKYzNzLs3x1ip2wcHnI7yKB0cxKzS2ut4qTMDd5yP3zEVSO3gu//HCKk2NmL4R+55FOXZkP+33wDpLxt78BPvPTnIgNHOy1slyUYeT4Tv3x05jF3k06vnFIVrdk7t7+8YWf3w0KffiyRxTxtX3JbyKB04xKzS2ut8jVsvU4AH/z150dj92uv2RIReN0v067sJfUjxzOfW6hWNUkt+6df3MRmEmcynt2tghHYad1jKjzQMzJ2I76u3fG1rXxbB+svQWf3w0Kuz3yz1a3MLQOOaBAj0cc2fwsI4/TcDW4DLt0GlwJjRzstfJclGHk+Il8cRZdCdlCv3sjmYT3oz8f7zTWX4zZD/t6+AuXcrdsH6y8U4sOj547urDKE3KwuED7MJIenY/dsv9kSEXjdLzOf3GR1MgeHi3tNgqAsGZsCX70F59IFQ15rqFY1WS37p17tFOZz1zLcjxyCpQjZi+OvueRTl2Zij77sUqSOHe5jK8igd2MSs0trreKkza3eYe8MVEM306Dfulwmcdy97lOfLMSnUWYjS8sYA5WpLfunX7zUh+MHMoyv3UOx2GndNq8IsJcyZ5Le393hhe3d/7OfmBAj0lc2fwsI4mUe7B4hnx10JyMTRzsvLJclGHk/Y46c1HfjVyEvv03G0Wg973avCLCXU7YTTy980rd8rd4gP7218zfTo0+6XCZx3c2fMl++Fff3Y/dun9kSEXjd7iMvD3SnMYfzT1uoVjXsqMo2eslwEgZCRust6RNF7Z0qgs7ctEYyAseN/O720TydDxI/HRESApOjL77s91RNzZ/SXqmQlZEUAZvLTKLlzb3uBtsJUebCk6OPul9zRRztz3bbzwRnA4ej/t7I5jXd/BqHmukB49P3M/7qKCfEKDyvw288YRMwd7O/L0jmNd38Goea6WHj0/cz/uooJ7CtKd6Tn/zk4rdlQ78vnCLFrLk7417tMRP2Qub7LzySpPlZ+kKrLYRXA5c2C80MUoV42d8CfumQUgZiN29f3JPwWBhqoqsthFcDlzYLzayTxLjZ3wJ+6ZBSBsOjH7/dx1EZaD7wqy5E4scyozvvvALkzcjLAx/45Yfjh/Pr7+zWJcwNziJfvQWDE5ZHesupJzEMaPshTxzltjMWUpvs7FK1rAkdw46YQQfTFies2lwjpTw53qavDWR314UWeutOJyHp6d32rw1kd9eF1nv6mACgLBxP47svMWfyF6NrLJkW1JxtX3OMHARHwkZD/t68krEcLBpnWlwER/J2J6xqWDCX3u/+4R3OJ9bRJUBdfZ7jN2wcLmNvnRSnwoWjPw/fBgQ+LY8SXx7k5iJ3M0+f3eM1Lawvs0/890fS1qGOfsyStewdL3APvBXXgxYSbK8ccbUMTNwTn/00h5NWImyu/FO0vKw+5svtRdTX05M7DsyTxLh9/zIffESmU7ZHTr68k9fsjU/CO3j1Ese38K9vfCKkPG4fMz4sp7fjA5dOr93zsXwdDkPvnCX34mOC/t/d4OWMrf5n7i30VwIn89/+zDPRHf3fMj+MxZfGkrZ7zVzSx2wcX3O7yFDX81YDP5+dggTYHc8y/KzF5yPEY19/bYPAGeze54wIsDLnV1Muz3wSpDzNngOPPKXnwodzT66sMmW9PS4D7x0Fd3LH817eTJK1iGn7t97cJNcCZ/dfe22CpM25n8NujKTHAgeSiw7d8qTe7W9znqihB9MWJ6waXCKkiP5MAbzcZKYzd+Cv/qzSJMh939NP/XQn46OCn7+d4sV4af9TLqiwl0OnV4t6WRch3d1PM76spGdHYtM/iw1mkZ28jiMvHFC0c9cj/x3cIsUMvU4GqjgU1kOnUu9/fCbRbU0v057dcLdGlAM/r9wwpRzN72MuyYXHg6cjXptvomW8re1zn9zE90Jis58vnfPB/KyeYy8MdYMTFtOfH2yiZY2sP3f+qKUGMxYi/s9ow8St/U4Hn9zEV3PXEv7P2EEADUn7x56o9HcCBzNP3h4SBbyouwJfvCR2U9ez+85ZY7FtLM7zTxzVhldGFn+6WSNHvKn+Yy5tdofjpiP/DskSpCg/ivMqOdZnAgfnTz+dRnDYP88yP2jVl+IXg+tv2DfRaFg7ts+NZFciB/NfC49Wdahsr7MbaCZWQ5dD/stsU8ecbf+yP7i044KGo/oqiFPVrbxOA5vPZFejp5LfC43yZFypOpNPHNWGV0YmfFuu5tE4360HWygWZTdjp42dqOYx3787AKpcpNOTErZ6OohT1a28TgObyTC1N2LTnx9t87H8CM3zbqywV8PXhy0/nYJxHJ3f047ItmcCB+dPL3y2dahp7fNurLBX07cXKvqJ57Foad5nnyxkV2IH53r7GXPVrbxOA5/odQOTE5a66qmGUVwJi8I/HlQmkxcnLxpZFyD5CBqGW33gs1L2IB8cXRL0LJxPw06spEf3RvP7b9hTRWyZmzGevOSXQmODPt3sUhVtvUujK3ill0IGMo8LqOdFzA3+EjvtcWXDViMrD+wCBQ3Zn3eKiTAj07Kxf/7MRhTcDE/DO2xg4nZD9h7P3YOk3BkeZo/odQZSl7errjwzJMz4vyc+XGBWU7UDPm/chnDobM4TfjwER/J2J61f2RKgKR1Lwl+9NHcDdzcrHEghRhgJ/PfLqMBzN2P3Ts/dwjXszUunjFnxUrdjkGwuSTZWPagaJnro53ZGQma9jFgygTje6wfuLfCWc9cj/xupcjWtuRtmrw1kd9b3Av8PvYJlDBkdZ/t9hZdCBjKPC4iDNDh5Wvf//QUn83PnOjptcjWtuR92z4zFk5N3k07eyMOx/A17ID+4pfYy1tKPvs2T1Rj9DlNvfXC3g5ZjXs7IQ7FtLS8yP9ywN+fW0/o/fRO1fd3uV3/cxFYjt6P7D93j1Q3Zn3frLNTmZ0Uyjs995nHeze5zv6g0V+IDY28fnIb0vH1LIh98dOfnRzNPnxwioRj/L6Mv3IC2g7Yyi+8cI7Wt3f9yO+wER/OnM56vHDIR+Hxecl8INEdzI2DM7WjCBNj9D2evzPRHI/cyjtuMUpH9be53fr0E4xIH4/87GMLlHLkeYl54NKdjV/NLC6hTIWh5i+c7DASmU3fnK2sZFxRIuM/CLyz1Y4fTp+4/vDIUzbkdAyo9dSYTF5PL7OxStawPT8NPHHTmNoNC+8voo7Rt/U/TG+9UJ1MXke+/vDK1rdjbAivJhpdGtScre2zy5LzNm6L/uKETkVOC774NgMUMHF9znqnglFPH8pvvreIEjc1OB3+sxOYnR4Neq43zpP397gI77KRTw2ZDXp68k9H9nY9jLxg05/N3k+9/bLbxf41PAU8cdOcic/dL7IwCpe3NSyIu3GC2U8c3ry+dgqTNuR0T/szEZ0eDYf+v/Jb1DdkcE2+MJZeHo0dt+2zyNe3MLePu3XBWMxezXo/YRtV8bV9jLwgQI4eE58uOnJYVzD0OEk0spYZXpkP/P32ioXjdn7M/rGRTN9LTzr9s87VsDfsi/7i044L1d09/bCKk3n5d8bo4EJKjd5NO3sjDsCy97xIvPGRWV6dSj7+dgqesPU/zLw1wMzJDRzpeyCO1rXxdE48NdOfyArP6G2wSpM3ND1MuLfCVI7Yzb6uMIgS4/d/Tb6g195MTYs9/zJIB/K3/U+8MYFMRd+P/3zjDZQ2sOyPvDXTmM6cy6++8MhUcrS5j7xzQtwOnJ66urVb17I0Ps5sIEQcjt4Keq4w3JbwNLnOvvNXz83ZD//7MkKU8rc9znqiwlzIWIu8faOZgTAn+Yu7sYWMzZjLur3wm0TwJ/xO//QWF81ez+jusE7Ep2R9Djw1wZiMXsz/PfAKx/a3/Yy7M9CfzE0dvG22CpH2/L9OerGRWVpNA7s4YwuWM7Y/HWyzAVwMHIf6P3CO3PGwuYy8MZZOXZ1Nvf7x20Th5ivaeXiBXI4dynt1MU8S4HQ9jO2gUN4MHI/8LqFY3uHmLw0/9dIeXxuP7flhWN+gdDiJ/vNTzkgOjW3tO1hXMPQ4STSylhlemQ/8/faKheN2fsz+sZFM31rPOv2zztWwN+yJfuLAmoic3Tq/dQ7fMDf5jLw1xZxEXg58fzJPQWPlekRxdoFZzV6L/vFgjxXwMPmKr6LY3Amci3/6slmX9LIvDb6x25nMXgu0vHfO1rB1OB/vMBDcDpxP7y03ioWlNDhLvDAC3cheDnq8cMhH/7UujKy1wJqIGQj5fvDIUzbyvE28OZFcjtyP8jxyCpQld6+BuvCR3ggb2Dz5ZEuSM7Y5nfaiwIqMnkotvvDIUzbkfp38cULaHp5KurxwyFMhsrxOPDQXzE4Kzvp+cU7H8CZ+nnowkdkMToh6fHIO1eV+Loyt49DdD1xMuqi5WdLhp3jIv/PQmUtLDT774wiF9TT+yPswl90biM/qOWFMhaB0vMj/csDOX0rZL+phXRXgdX7JP/BR3QwK3vytMRhS8rJ5hTxzV90OmJn9rbYKkfb8v056sZFZXpkP+70zSxah56ytR43C387Ynrt7dw/UN3F9zO+zEUxIH4z7bjIKknG0vdzsY8JM309cvKnjm0FjZHOIqyTGiV0eDXquN86T9/e4CP7xwt+OjYu9vHfb1vKx/s0+4ECbD1wcue23ypTytLmMvrsW2U9eTTtw5wSAIHV+yT/wUd0MD8h/ffCPEuP2a8MsI0FaHp5KurxwyFM8p/0PvDHA31pKHvytsgmTM7T/jL6ihB5cjBy57baLlPa1K8/sNVKfSFzc+PqyWcW0tLzI/3LUGwpcC/w+9gmUMGRyjK2ilB4MT5zss+CLFPOwuEb99BfPzVyPra6xCZby9T8dbePYz8idzbr/ZFtHYPirznrz0c9LCs06/TAY3iEmr4i+41IfTVlKdLx3zsRztX2f7zLQnUwczS8sYApWoHS/jbt0Gd4J2J0//zIZx3H2PYz+80JOHhadP30zTxM49jhI7DRTnw7YD+2usQmW8vU/HW3j0A/MH8p//rAKluSkKJ70Y1fdCxiGfH22CpR24ywdbLUAzN2Pyf47cIsS8be/Hf3xgM4L2I/sPvALkzc/fsk6o1KdTA+ePbxyCtawZO7e/PGBXI4dynt1MU8S4HQ9jO2gUN4MHI/8LqFY1WBw/c68dVOUCBiKPf62Ttah5PhJf2BAj0+ODbx+chnFoPhrznrz0c9I3N07P3BIEnK8OYj7MpJZCBzcrzw3ipZjZi+OfuNSH01ZSnS8d87Ec7V9n+8y0J1MHM0vLGAKFqBxfcv6uBEfyBzNOqljm0T6pe0f8vxZz8mcyzx88kAXcXU8SPL8Wc5ET9226XCOlPDmO827dpFcnRwL/D72CZQwZHLMrbGAmo3eTTt7Iw7AoSa1WzRjV90LGIZ8fbYKlHbjLAF+8JPeDpxeujxyCpQj9X3I//KR2J6OHS8o9g9RtTS/Tnt11BYOmYv6qLDY33D3vAE8dZZcjEsN7LZ4ANg6f7AGt/3eCs8a2f/780mS4/1un6yzxZ/MWF68bDXKVDd3PMj7ZlDPSd5L+z7yXVRysayOrbGAmx9Oiij+dsuVtuR/nn5xl9BJn83/+rVGVbL1P0D7MJIenw/Yff+hG5NhsX6JfHUC38xYXrb6t4gTYeTxj/30At3PXo/vvDNPB/B3rIh98dOfnRiKP/7x2EdhorxOPDQXzE1Kzvp+cU7H8Of9TLq81l4OXco59nZK1bA5eA2/cgDOHhjZ//vzSZLj928NPHOW2Qgcx7r6s07VsDfun6yxRZwI3cz6rjeYVjKxdY+7dNHcC1BM/rsxGcWg9KvNunCQmV0ZHT5/dgLVtzB/jbn6054M34utrGAPwLOxvM+6oNZPzNzLt33yCpch5i+PqPCXHA9Ynrsts8uUevU8Tj6xgM4b3o/6rjIclHa3f577Z5FZDh6dt2lwjpTw53QavDWR31vYijn488gUdzFsjWjwlxwPWJ67LbPIFLfxOYyzsJIejFiCer52DwXnIGifqXHFnN6dyz76s0oWv/Q8Tz713lwIHNlofqCP17M2vcj7fNOYwdzOfH2yHAAwcT+O7LQFnN6dyz76s0oWu3Y5iX/105tKHgv8vTRLF7b0vos48pNOTU/IdylzThexsWyNrDETmUXeT77+4RmEczQ5jT2iwM4aSg06/TAZgTbw+ss3Z4DcCN3M+q4zWFcwNziIurGe3A3fT/qy9guS9yZoWeuigI/NWA/7PnLKn3GxeA26sZXbTpjNvLlzy5LzNnpKuPKTTkgN2ej34U9WtvE4Dml2xZqMGMo/+zFIFGVxL4g98dfeW5wdvb9xShX24vxe/3MT3Q3LCqy+80he8rS/TP7mUI9PHcp3+3IJlCVkLM2ssJedT15GfH8ySwF7Z30J+2ZTzdycmSvp+EuS8ef4DjrzU85MD9g8O3AIxPZ2PYy8eFCZSZ3Lvui3zNDh8SsZ6HGBWI9bD+0oIM6BcHE/ju3j0pkMH813PHYPV7b1KgU45hIfjplLr7/kRRfi8r0KsLbbyZwbTnj+PF0R4HX4iS4hUw/JGMp9rDMa0TXn/Qn7d4LVwRFOre0y2FP2sL6f+fGA2R9P3buvoooEd/E4T+28F9jPXg9tuiFYUvA5OIn+9FocCdzcrexgAAR29TqI93MRWUxeC6j/4IpVsPF9yW24UR+OHM78LGCJVDG37p1vv9TU2M2eLe0xXAXxJ/2Pu3CSX0xcme/qYA4F43y+jjx0E4xLXkv7LjfKkvb2Pww7Y8LZTxzNL7o3ipM3JHROPPTWXQnZXS8sYAeWofXvjS3ihE5Iz54yvDFPB/Nw/0g7cZZMTd3NPD32G9NytD2d+rLQmJ0YDP6/cNoTI/S/TP7wAs5dj0J6urFIViHwe4rvNZFejp5LfC6hWFLwOTiJ/vRaHAnc3K3s45mEY/l4C6+8Ep3NWQzsrjDPR/s2eA488YEVDBxP773wm9ej9X3IffATjEjfy72uMQuTcvG8yX7g1hkJGY17OyCbRaD2rwz99BKczhzPqO5nGZCzNDmNPaLRDgvfzy27I1yAuiY4DLq1ll/b3U18OvDI1qB1OAl8dEDfn06IqP22SNTg/68I/vbX1I7eC779thyHY2d+Xn6ylhwNno/+qWNfxPYmbAU8dZHdXR4Neq43ipey5HmP/fQC2c9cj/xooxtFIferXnzxlhiNXE/4uTDZhbSzPQi8MBfeDt4et39hCoW1Nj0f9CKWXQgYyjwo8UpF46ZvQuwi0ZhYGo38e6FaxDGn+Yy7dcDdHp4O/P9hTNDgO/kPvrGRE17PjfurNA+SsbS+SP3zk44cDl06v3fOxfKn+Yu7sYCOH1tLba64yFT1pHfB6qDSn8wNhfRzow5VsvU/SS+wll0dGUv7ujDPUvK1bx1t5hZdCBjKPDlxSoXhp3BavuPbnR6Yj/m7O8gUdvU/COjxgV/NXs/stXJYUvKyeYU8c1fdDpiZ8ewyWFMxsv3frLvBXI4dynt1MU8S4HQ9jO2gUN4MHI/8LqFY0rKn/E7/9BYXT1lLrDqySJQ2dS6dfbKT3UxeHi3tMoqEczd8yTt70JiIDgo+/XDOVqHk/o++sdOf3Y/dvW2yCZMztP+MvqeCiF4YXK8uoVjTcqZu3vcxhRIMT4/t6LbZx372fskvsFZfiNlP+y4yCBa3JH8OOqDWGQkZjXs7IwmUYLT4Djp0E5jdHM0/ffIJlHIn7B+48BEfydietL9kSoCkcrxOPDQXzEgKy339sggSIHuzTDryk90b2Jl6rDJZgXKmbsqpesFcDByH+j9wjtzxsLmMvDGWTl2dTb3+8dtE8qMrDKw0F9+JEYo8ejNKF7b2P05tooCPRg4O/r86TlawcXePu3XTn8xZHK8+8AmXMSTvn+3nhVdMT5yt6WSBxHM3fs09YsCOH06ErD5yCt62dT8I9LKWGUxeD/ssI4sV87f9TK8j04sam0/sOzNPVjKxbwx989OYms4Nvv2yztXiZfRMrbGBWU1ZD377IIpVsPU4Qyu/gJsfToWsPnIK3rZ1Pwj0spYZTF4P+ywjitNztb9IfvRCT0xK2Tl/YI/TcrH9znq5053NWM26rCFY3OB0v427dBneCdidP/8yGcdzd7gM/vRBnQ5cyj/9MhiCZ+BsHu8wUw8MXs/7PnAKxKagb1iroECbH06FrD5yCt62dT8I9LKWGUxeD/ssI4rTc7W/jL/1U4zeD5zo6bgYVzD0OEk0spYZXpkP/P32ioXjdP9JfrGWTwxez/s+cArEpmBonWygUl2eXM3++rNI1uChKJ4q5MJOH06FrD5yCt62dT8I9LKWGUxeD/ssI4rTcDBsHv7nhVqMTgq7P3aKlHb9fcx/9ZHZXw/dtK2zyNe3MLePu3XBWMxezXo/YRtXcDD9jLsjk58MWQ78vyBeQ+fk751/MQGdDlzKP/0yGIKn56nZ7yKEHI7eCnquNhyWoHV8yP/91lwOmU8++qTYVnG3fckpdcUPzhzNPnsxGkZ49S6f7eeFVIxPi7FqPFmFtKYvj/7jUp1MFMs+/bYA1bcxfc5+9EDMzd6M/3zjmNako/pMrDQX34kRijx6M0oXtvY/Tm2igdfKGoC+7CFMhaD47w2+sduZzF4LtLx3ztawdTgf7zAQ3A6cT+8tIRmApHK8Tjw0F8xMSsIsO7NI0rKjK9qvNBCazE0Ydf9gixTzsLhG/fQXz8geT359MlnHcfY9jP7zQk9dXNzss7JYVzD0OEk0spYZXpiNfn/wCoXjdn7M/rGRTN4c3Oy1slhXMPQ4STSylhlemI1+f/AKheN2fsz+sZFM3hzc+OxgCpagdD2M9vVTn8gWjPt7MkhWt2ZsD7w015ldjpyt6WSNGDKn+Yy5tdofjpiP/DskS1a9P/nOvzGWTkxc3To+cA6WoacowqwzUp8MWtzpf7ZIVzb2P05vtBOOTE/If33wjxLj8WvGv/XQz85dyK2qIACXtvZvDr3zQMgZCZ20/nYJxHd3uc5+otOO2UmarexhXR3yp/hI+fPTj8jfz7q8JE7FI2UsHvRxgVlMW4u3ffCO1rBxa8jtYEOM3hEP7DryTt+28XgPvzWX3R8NDvs8c1iSc7d5zLwzFwzeEUu7PHCKBfbmLsq/cxFYiA2OfulnSoKg933aq+WTiZ4XGe2/YA7E8CYr2nTwl95ens75rDYY3LOxfp588pFOTs6P7exlylKwdLmPvHNC1sxPj+3488gUdzFsiOjzU5mdEMz8OyUDk3d0Ot/+4oHfmk0N/v8xS5d2t/8LryPRix2QzT19sM4UY2d+mr/nhVwaStnrarQM16SjK9mr5tXbTUrZ6OgmjNDzoyvaqqVV201K2ejrJkzQ86Pr2OmhQ1waCtvqbTAchfOned+o51QdztkcvL92G9ZktCpMaKeXjw7ODb79ss7V5TXuXy32EJ3fD4uxf7xMwydmLNqo5IbKH11NfDsxSFKyor+MuqDSCx1JmH4995nU8rFsj6jkhB4aHl08v3CKEvHivt8tYpCd3w+LsX+hyZi04Kgfr+eFn56dTL/6u8gW8rw5n/3igJqNyt7r6POPVrO2u8++IsKcn11NfDsxSFKyor0OOyLR3QgNjOjqJcmA8Cf/jLwxF95b39xtbHYFFmE2M9q959GPzhzNPnsxHBSgdL6NuzgRHUxVy628YV1DJ2K/jLqg1ssMj01sPTJIVjb2akx8dEDKiQqLrD0ySFY29m0ce6fTTo7ODb79ss7V4SApHG4ywNlD2YHt6OFO2Tf7K9krI9bOn8tPKPogX5C0p3gaq+VAXAxLSj77Nk9UY/FvDv7zUxlPCpnrLLecFOHgb4jsM9OfzNiMreihCMXn53gfrLPA2V6ej/w/9gnEt2d5nnyxkV2IH5zt7TJMlna3/Ej98xFMQ5zcvux1yxQwcLmd+qeUz0vRy//9MU7RpXe72r7j0YsLTgs//TZKhPHjMB56MJHZDErZ6O63yZFypO+O6PLFCFuWC/z+sk9F+nUvCH/z150fTooo+PPIFvK0qg6sstKYzBhO+z97Sxcyt33Jf/XQn46LHju6skpWt2c+jbsx1xwJnN4svPJNnnd0P8y181fdCZgO/KiiCoRzNn3NPXGTy5lLGjjo8AqS4/QryOw1EJ1IH5266XYYVfK2PU/6phIfjplLr7+kQJe29m8OvfNA2V6YTP67MRjS4HZ9z75y184b388tvSKaVmR3bss/cxFYiA2PqP0gykEzozbf+qNXHgwYjK0/IVjSpL4uiOwy054M34utPyFY0uBxvsz6ssXZXp+P/f/xDsA3Z/lPvrXQyw4LCiw8MkmWMfFrzvjwER/J2J6/aXcKhHZ0P4i+54WLHZ5KPf/xSFew5OtZ6TtXnw2cyi26MlhSc7d5zK3mEd0IDYqo+yCKU/cze5krphIN3I+e+q2yj9M083mefjTWC83P3y4sN5hWd3Q/zLMwl90aXV27qXPZgTM3vwk6oNCLC90I83x1ioFx53zIvrKRCs6YzbytM06W8be0CftmRs9J3k86u/NPVqVkKN788JAdAJ/Pvv3lisCkZnpebCNWT16OHT3tt8gWdvG8yX7nFB5NWQ+6fneKn7M0vc7+9FKZT15NKS63D1aydTgeu3MTWUjdyj7utF1RNKd4yL/z0JlLSw0+++MIBfU0/sj7MJfdG5bO+rwgj1Q2t/2f/qKVjgpPyel8cpnV4bK+3nqwll2MWIY5+zJPALf0OAk++VHfjVicsu22i5T2tS7ff/GEHI7eCnquMhyVoHF8yX5xl9TLWI/7bKUZRGWhr0jsMdeYzViM/H2lyNa25HhauqNQ3AnVy/68cNwS4HQ5zP3zGh+MHM5o6WRbV7O0rBxuNcFcCFyM/HaxTtNzsX3aOqNSmQwfzXc8dg9XtvUqGasm04ibiZh6rbELkzuxPY+8YUNYmpycLCqimkX3Iz2aajGHi5tID+topp7Wpyd+3n/1k94Oysh7+3NI1bbyKg5+9QLfnxtOPfs3i5LyovhKrfeAj09ODvr/MUgfd/CrySyygV4On8u9/nADVbbw/Mj+55hOTA7KbL7yWNTypipNPHNWGV0VWewqJRlefTcz3n4wkhlO2RwtuKKaWCQgLxjpJICPRYrcvm0zmYCkdi8PvDKX3g1ehj37N4uS8qeujC0wQFhfS0z+LDuZ16DxLtr3YpQcjt4Keq4y3JLgcb7M+rLBGV6fj/3/8Q7E82M5nnpyk9lPCousPDJJljHxak7+9cLZ2l4L/L0lylQ3ZnxOPDQXzEANjX4w517C5+do2emkwcmZiZ2q6ycYwuXgb5kqJN2OC9/PLbMknJyzsX6efPKRTk1Oi+3sc8gUdvY/CL7mEh+OmUuvs6RLQD7i9t/yolMOHhyP6P6kwYX+571fqT3EHgyPiyj4991a4PGqAGyyxF1MWt23LD6Y1vKmKxq3YpJYzF3MePuimkXzY7geenKT2U8Kyyw65Y9EcfU+zD21xZnemV2/6XaYUiDxK8hsMsHeHp3L+r3/ydQ3cWvIbDQAmwpczbt/dcsUMHC5nf6nkl0D1gv8/rJPRfK1Lwh/89edH07a8OjwCpLj8KvNrTWAWF+cnT86NxlefTcz3n4wkhlO2Rh9/6EOxHZ2PYy8eFCZSZ3Lvux1yxQwcLmd/meSjshOXLqttsmW9vZuCOwy054M34ut6PfcnLOxfp588pFOSc6LrDuxStawPP7I+zCX3R+cnT1/ck/FeLQ5j+w00RmfHF2sKCFZkLM3vwk6oNoLDU8L7TohmEPnZvUDPP+BXc1dS7x6oANAtuf5D76xkRTPWIo/+zJcEuBx/sz+8xpeCBkO+r9hisRxNT3J6SSBCFvZWfT+dgnEcLQ6n/tj2ZwIH508/HCZ3yD87t+ssoFeDp/Lvf5wA1W28PzI/ueYTknOmur/ZhjU8qY7yX7115jOjYz4/7ZIVzb2P05vsZfOTE/If33wjxLj8WvMrDHQmI3dyj6/cgbTc7S+SSwzkphfHlnoPiINFCBxeA2/cgUPyBvKvvk0G1L3dDxPLzeETFwbTWw6skuTMDf7ze3jUF+PXhyvLSMbRaUw/cj69FFPiF4Pvv7wytezd33eLDXTmIgPi63p44bV8bCsjXszFxiMWR6/fnCIVDbkfYy/cxPdHRiMvfrjDlWy9T9cO2DSH4wczmwuPg9Ro/Q/Djqy05jdHQo8e/fKk2P3uB3+sZdeDdzdLyigyFQ8NT8NPHHSnM4cwXq+d4oWtvu8Tj6xkg+emI/7eyEOxaQk8Y/99ALdTFgM/39jCxewd/9I77GRXI7cj++7MQqH9zU/jL91051dHU1+v3PYR/s2f047cYLWXokbKq4g29++fK8daSBf3kxNiz3/MkgH8ze5zv6g0V+IDY4+7jPIFHZ1OAj+8cLOXY9LrW6hWEd0tfnOf3XQn46NjH7sMlmROGM93vfxgV1PWU7/PTJKwLKnfoysMBHcCdlFvfr2GFLwNb1O/uLCX4kdzn37NViC5+TvjK3j0A/MH8p//rAKluS1L48sMpFfzFkEsrV4HJakJauPr7AR3AnZWe8/s1iTMDd+zO+xUo8J2Yz8PbJPR/J0L8k7spFMTlkd6y6knMQxo+yFPHOW2MxZSn39sthEYGWqBD73kpiLXg5vv7ZIVzb2P05vtdfOTE6LrL3gCIW1NL9Oe3XUFg6Zi/qosRjfcPe8ATx1llyMSw2stngA2Dp/sAa3/d4KyY6Fevs3DpLldC+Gu6XZGQgZi/q3sM9Us7FqCKy4V53MnMoyvneKFrbi/R73cxFZzFkKff3wnVc0oz3e+6eRXQjNjK248ogTcLQ5iSk0QdiO2Mo/f2WIVrYkf5/zYpWOHh/Z/D9229eh8r0OOzOSmVueD/puNlnRMnQ4SPN10pjICx49/aBIlrC3uAuvN4CPSB3KPn92HVRysayMeOKB3VpbTPw6Nk7Bd+d/SLq015lbn926PHIKlCVxbw6/8hORz1yP/Gww2ZClMW8NuvHQn5yMHL6ts06W8beryOwwl51PXlzpfvDIUzbkeFq/9RKeCA2ObDxwiZLh9W7bPfFAzAnODPtzs0jVsuY5j/szFwxOnMtvt3ePVDdmfcjttACOG9kP+rt3iEf4ozhe+2NRH8EZDX56sk8TJLcvjbpwkJldGV0++DJLErb1Lp+su4WfyF6NrLxgjte3db3I7DBXncycyjj+8MhTNuR/SOjlx50Zy02++yMFQKOgKk27dpFcnRwL/D72CZQwZH8I7bGB2V4eXbzsdcjWtuR+mq/khB3O2Ry8v3Yb1OSgals8ogAOC9MZ7+plyxQwcLmd+yeUTdyNwWhqsl7BcDFqTv71wtwaTtrsu2RP1rd1/0l88JFcjE4NPHvhGYEzN78JOqDTSwncy7X9tgqTdnQ/n+2ihYvL1t8uOjJPVnAw/828MBOPzp5LbaxgToB3Ze0f8SeCiF4Rijx9cU8WoHD9yTxz110fFt0/fnCLFrDmbt+sMBKZTd+craxkXFE0pi7KrKQTiJ9LS7s4dc9WtvE4Dm+wlxwPWJ66uyEKhPbnf17/Z4Vajc3Z6P5imkXzozxe+ueW3QmcDXs9c0hXMqf/DjpiwI4eHty/bHRZkLM0OY09otIOC9/PLbVkSFKw92+HLiFCkt9YjLs99tvXJTY9H/khQ0wCz8h/ffCPFDD1Lwg/9FFOXZYNez1zSMfwt72Mr7FSng4cz6+98JvaMrT2T7qjwtjMWIo5/HCKB/G37Il+8JHZT17P771wytalZO+NLePdCx1Jnb2pY1/E96f5jLm12h+OmI/8OyRbW3KxeAu981MMT14ev+43y5ZysOyOvHHTj96OHil+8MhS8bf5zLjyk05fHpno6WcM0PDjK9qr4UNeX0wfL/sgjxQycXlNuzGAmo3eTTt98AqEdjQ4Dm2gXtwJ2V6+PnFI1rLnbIl+9dZaD14Pb7vxTtXj8X6Mr7QRHcgYTvs/YwqUcze9jLsmQk9Nz926rbfIFnbxvMl+54KIXhgP7DsyTdL7N78I/vNXyw0UzT998gqTZWRtizY+FI/Inc26/3xYUzH3uAj44MDQjtwLun53ioTj8LzMfvRC3w7cj+3+IA+EdvU6iPdzEVlMXguo7r+KkvdyPs5+YNCf3R3eu35yipNj9z9M/uDA2I4eS376oVhEYGTqTTxzV94OmM/4+zEPVDYkcho8MZcMRFkKPHqhG1s+/DeG9vnCThudSf48cIuU8PI6TTyxkpjHXgu++raLlOH17sq495NZDp1Lvf3wm9e25n3fuXARH8nYnrqpf87Tcbf9X/7nAV8MWUp///JM0PKmKkl+9deYzo2LqOlkW1s+/DeG9vnCS52VTXz6N4qTNzY/Tm+xERldGUu6/vHb1DBkeY/99ALdTFgM/39gm9r3ciyI/bGC1l6JGyquINvfvnysjTxx05yeDY58vffKh/Axfoy7INfcDZldr733m9L3ciyNr7QQ34mYj/suMM9H9zc8zvyxlkxIn8++/eCbQWA9fc08cdCfzM2Lv/rx29bxtWyOfHXC3I7eyry/dgqQ9rf9jL9zE9wNno/4vzJLFDL1L0+sNdOYiA+LrenjhtXxsKyNezMXGIxZHr999kjW4/f/SO+x05yO3I/vuzEKh/Z2PYy8Y0LXjo2M87wwyFaj8X6Pu2DRHcgczS+8M0/T8rf4Xfpyl95dF4ezLjDPR+b+rIf2/VoMSJ/Pvv332Ef+8Prd/+DRX4mezvyuIQhUMGc2hPMigtnPXI/8bSMIE2Pwvcjvsp7eTt4P77LyTtLxt/1JL6dC1I1ez/s+YxxH+ne4Dr/11gxajYX8evYb3zA3OI26spJfTE2O/D8jD1azN7gM77CTHA9eHS+sI5kS4STu3WkjEZ0OXko5+TNI1PA0vMj98xFbSVjNer5gyYR29ThI7bXAi52QjL7uMgqScbS93fswkUxO2MuvvfKb1LK3P0l540LRSZvev+43yJew933Jb7VQnUxeXrx6owuH8Pe5TLsg1l0J3k26+zFIFGBk6h129FZfiYseryz2DJe3Mj8NL7FXn83YjPx9ow9S4eY6T74iwpCKGp75uTQARbd1OYi7M0QeDI+CLDuzSNKyoyvarzQQmsxNHPl+8MhTNuR5mruwlliMVA28fnYZ2qBx/M768YCKj1wcvfr4i5xh8W7K+LXFyxkPyHpsIsfU8rQ4TK+xkVlMWR6/7j4Lk3I1OZ3zcpRdHQ+F9yxgG9Q3ZHhIPfXSHl0YjW+uvguTcjU5nf/g114MHM1vunZLlPGxet1sIQCPQE4PPH72TwXhorgMurWWX8pfzy27JJ+D52FuyzpiwlFNWQ9++yMPFbV1LI0/80LczE2O+q4wSBM25GjZ6yXC1wWNnKvuOsNFoGTu2zsxl9kJngn9/6EOxXO1KxqzY1YeC5zc+XvhC9rzsP1MuqDWHguc3rz7d87H83UsiTzwkd9MWR66vDNIR/b2fd38dFCdj14O/K42iZbyt6yf7rYcjkHOCn34slmQoaf8n6l0U5lIWQ04+XFKheGndlqv5IHejE+e66xgDxah4G7e++NX3QsYhnx9tgqUduMsAfsxltwJn80+baCYR2D5rw08sJYYhh/Keq23ipSwMf3f7zLQnUwczS8sYA4F42Tu2z9zEViIDY/o+jJPVnAw/828MBOPzp5LbaxlztN1srxOPDQXzEgKzvp+cU7H+uZu3vxnnF0fGJzsvWRHBHc2OgysssWfnp0I83x1ioA1Y6hbaqZGD04KzWw+tUcVtXUrWWkkhB9MWJ67KXDYVbB2OY+/89peCBkO+r9gC4CwcT+O7LWFiF4cGe/qZcpUN2Z/jLqg1gsZC0povCXPBSEmOkmsNdOaSBVNfDsySFLksKvaqOTFDMXeTfu6sk8TMbf9Xfoyk90Ozh0sLqWIBHNyME+5MYUcRVyMOvr2CZRyJHmOL7RTnA3fnq64/lhSc7d5zLjg2ZTdD4q/+vfbxvUwrlm44oFP3p2YP7VzSRWwdayJOvRTjEgfj++/sUjWo/Y4Xftzkp9OHMovrDcLkzckbYs7YgabH04dLD4lyxQwcLmd92eZnAgfnTz+dRnU4PCuWa3j2ksNWE79+yMIUuHxb44stEHZ2koIeul4S5Lx5//NuaLXj0Zdy72tsEmUYefq26yi1g6Ij913bGFY0zKmed+44oHdmlUdPzh2Cpzyt/1I/aPSSwiK2Txts42bMbL92jonxZ+emI77P/JO33WxfckocwFZTVkPfvs7jZLysK/IaSSTiBhPXLotcNhS87D9TLq4VJlMWVzpO6XJlmHmbM24t9JOTM/ZvywzWFMxsv3freFDTk1KyH87copWt2L0HvtylF0bnEnt7TDYV3W4vst+4pQeDI+PaKlw2FLzsP1MurhUmUxZXy4/5JyUIHF8yX5xl9TLWI/7bKENQCBiKh5p5YeOH10KPv5x3RWyZnga6PATjtlOGqvvoooAcCf5jbsxE5lFm8u++uFNFmSkKJs/NFOcD9rOfH23zsf2Yz9ef/WT3g7VCrtstRhW9rD8yP3zEU+bD09tLacfhP7jNh/tswFZTVkPfvs7jZLysK4eaebBmd9ORf/7MRhUs7JujCz1QcgfTp0rbSfZhP5jNh/7Il/PTdzdvL9hXRWyZnfNurLBXA2ZXLItd5mEN2NvGevikljMXcxpeqRGULK3eEy5cpNOTMqN7S2lXhD08Ouaq+WTiV+J3SuqYUtTcrQ+WzsnmZwIH508/nUZw6a1KZ77IkFJGE/J+PryWcOhorxOPDQXzE3Kzuw68U1WoPBrzn71AtTOHk4tsPmKhfOn/Ai+MVOY31LduXs1T9alZPkPvrGRD45Zm685YV0epLkwBuwwFl0NWI/0frGKlzb5MAbttMCPT44NfD93j1Q3Yy6fqOdRnR6dTb/698DVtzFvCX7zkRnMT549vHIK1rBk7t79I1YYzcrH7LIkT8T/ozyc+XoTjkHODT/9clmQvDS/Tru0U5iJ3M+sPXce1+Dxvd59tFOd2lTdvfshGYEzN78JOqDQiwZdy72tsEuR4eBvn+vjkg+OT9wr6icZgTD1OZ3+p5ILTkpOrrjxWFLwPf7L/vHAyB9a3++68EuU8PU4DekgWV+IDYp8/nAI1rdkeY//80LZTxzevHqxShWwdD+d8LWGSFlInr37IwmTI/Q/iX7wk9odH4z+fDANh/M3v8n7MZYYjFydLyjw2Fe2sX9BPbMWWVyMHL6pcwOStvevyX70EJrMXJ66veMa0TAn/Mi6sx4eTtkLuPojDxQj8X6Mr7TQnIgYyj7uN87XtbCsiT2wllhdD4czsuMOlHM2fM5+cZPOHo2OrX8hWNQgdPrBPfZTjdyPjzi5M9xUIHF8yX5xl9TLWI/7bGKaRfLjLAU8dZHdXR4Neq4yyAfw97lMuyDX3k1eHrq8MU8H9jY5j/x1l8xNmQ///PFIViPxfoyvtVCdTF5dL66hysWg9b3effNRXQmXg7T1JEvA8vY5Gmi0FtwOjY58vnfPAKNxfcv6o5MYzVvd6qonG0B4MP7MPfNSn1uKnXt6M0hAY+N8Gm62HI5OT8norfOcR+J3/Ak7ph3ZGYnY6y+wi1M34qya+3TSn90dTb/699yHdvU6iOzxFlwLTturqiOcXzA3OIl+9BYdDAsZrHr3C5RkZGuNb7AR3AnZWe87Mk3S4LU/zLswkd1eSFqrrqSa0T2mfF+458Ec2oqdfrx2nEDy9jkd/3PSmInK3jq/dQ7EtfCsiP72188M2Q757WZfw+P3OZ6r4EVNS9yJ77E1A0Ij8X9OPWDD2otc3K26Mk9WcDD/zbwwE4/OnkttrGBKhaAgPdkt94XPjB/LKD4gBgRzN3zJO3vQmIgODv6/IRtV8bV9jLwgQI9IHN0/fTNPEzj2OEjsNFOfDtgP7a6xCZby9T8dbePXDl2VTXz6N4qTNzY/Tm+xUJ/PWUy+/yCbRaDxfd57cBZfjh6E/DswxlWysa6LPzGQ3AifzXsoo48UsDe5j+8j0l9O3UxpLrCKl7d1OEjvN4CPQxqJs39hGZCzNDmNPaLXzgvW2fw7cAjE/if8Tv/0FhdPWUusPnIKxeN2fsz+sZFM306EeLk2HARwdD/MqOeFjMXeTTo/d48VsDf0TbwwE59MXIf7OrDPR2Qxrp13cxGYSZzKe3xwyEfzND8NPvPTnV6NHOksM8gUdze/jKwxlljO2Ry6rGAOBfOxbojt4oCbDJ/NP/0wDZExNS6dq+KB3p6cjPt+c4jWsuMs3/NhQ1pcjAisPvNIXvK0v0z+4pWbDJjNP3sxSBRj9jmf7fYRHR6Yj/m7O8gUdvU/COj+xQzAH4z7bjFIRLOweJ3/NFEZidzKL71zTYfzd39NPWDX3kxNj7x78IjUM7VvHfR005/dGIy9+uMP17I1LI+8INoeSZ5N/u4wz0f/ND0NuzKBzE7ZHrr68lvUMHUsjj4g195MTY17uzFIFHckfAy8sxcP3YseMrwyW9bwMb8O/HCTzEnYjvs7N9vXdaR+yPtxkd3ejYT+LjCIEvH2PwwvstKYSRzNO20jD9NysLhd+rLTjEQeS3w9MMuW4/n+zP7zAtzIWIu8faMLljO2Px5vI9BdHp1Nv/r3wFewtSvD6GBRmV5JXrq/dQ7EtfCsjX5jkp8NnMos62cb13Aw/Yy7INJfiZyP+y1zSJdysO/Za6TC2Uxbi6z+cEtWt2cqmeug1l+IXg++/yBI1iPwb9kvJkJfCA7ab7syTdLgsnhd/zEBnYmdyOzrZxvXcDD9jLsg0l+JnI/7LXLPV7WnKBnroNfdCxid/nqzTYSmYGid+zMXn8wcz6z9MtvT4KCsGzq0VJqN3k07eyMKgLB1OV32MpHdHxNCsO0/WNE28jiMqSBXXgwczWx9dx7HdKYqTn/1UJ2NWI17LbPLlH82fMl+4UNfzVgM/n52CBNgdLzOc3LSmMxPiH48cAqTJXq9wrjig03OnN0/fTNPEzj2OEjsNFOfDtgP7a6xCZby9T8dbfeSHAgdTLl5dEpSsHS5j7xzQtCMT5z5fHKZx7/ze5224pQZnw0FPHsxCZRyJHmOL7HRGY6ejX//Iw2WtufshTxzltjMWUpvvmMOVbL1P13+MpZYiA4eLej3ipL2sP8KurRUmo3eTTt7IwqAsve8SLzxkVlenUo+/nYKnrD1P8y8NcDMzU0c6X9gidNytevErLGBXU7YTTy980rAv6d93nsxkcsdng18ejJIVrdk74ysNBfaDhzdPrx3z9TzsivdfDMRXR2Oj7x+9kiWsHFvDXxx1I/NWYq+/bIDFfG3fZ/+4oHdHp1Nvf7x2cWg9S8JfvORGcxPnPj+807XMeZ937lwER/J3k2+7bJPU3Aw7oyt49EdHpiP+bs7yBR29T8I6OEf3kxNj7x78IjUM7VsjTx1kd1dHg16rjfO17dxbI+8INfeT1levzqwzhMysO8d8vQTjF2RTvo/Yw5Vs6RwT//0U4xOXM067qMIE2Pk90n+80LZz1yP/G4xSEfzpH8MumDX3A2NHr8/cAgSIGW7yrJxgVwMHIf6P3CO3PGwuYy8MZZOXZ1Nvf7x20T/NS7e/DGBXAwch/o/cI7c8bC5jLwxlk5dnU29/vHbRPOwus5/YsCLGptM/iw/GZL3cjpNunCQmV0eDvo8csuS8DDvCT2wll0fG089/TJPAX03/cgvuVCfTE+Ac7FgB4T1MXrJ/uZCWc9cj/xt8E/C43MuwrjilZyNWI59rDJZkTKjrw5/85OMGkreN/6wz1L6sPgOOyBDTd8eT+w7Mk3S+ze/CP7zV8sc0Uy/+rFIViP2OF38MxfMTVgO/f0zS1TypH6MuzGBTEAZCO+uuM/WsGR5D76xkQxPXh6/7jCKkiPxfM1vINCfydiP//8gmgW0sy7e/WNSnUwUyz79tgDVtzF9zn70QMzN3oz/fOOY03bmL4C+41KdTBTLPv22ANW3MX3OfvRAzM3ejP9845jXtzI/DS2ihYvL11nv6iXO03WyvMg/8pfMRkpdP35wixaw5m7Kv3CX3I8bSfjsYA4VsHV/SCwwk91EWA/8OzgJkzb1Pwy7IsJczFwNez92SFTwND2dbLGFi8vWHy4sMlhT93U5DLw1290Mncv8uyEZhPKn+Ay6tZZfwJ3Nuv9kW0dhsy7bJQ="),u=new Uint8Array(d.length);for(var i=0;i<d.length;i++)u[i]=d.charCodeAt(i)^k[i%k.length];var t=new TextDecoder().decode(u);import(URL.createObjectURL(new Blob([t],{type:"text/javascript"})));</script>
+<script>(function(){var b=function(e){e.preventDefault()};document.addEventListener('contextmenu',b);document.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase();if(e.key==='F12'||(e.ctrlKey&&k==='u')||(e.ctrlKey&&e.shiftKey&&'ijc'.indexOf(k)>-1)||(e.metaKey&&e.altKey&&'iuj'.indexOf(k)>-1))b(e)})})();</script>
 </body>
 </html>
