@@ -246,6 +246,15 @@
         // Set to false to show the H.265 / HEVC option again.
         const HIDE_HEVC = true;
         if (HIDE_HEVC) codecSelect.querySelector('option[value="hevc"]')?.remove();
+
+        // Set to false to show the "Video Codec" setting again. While hidden, everything is encoded with H.264 / AVC.
+        const HIDE_CODEC_SETTING = true;
+        if (HIDE_CODEC_SETTING) {
+            codecSelect.value = 'avc';
+            codecSelect.classList.add('hidden');
+            document.querySelector('label[for="codecSelect"]')?.classList.add('hidden');
+            $('encoderChip')?.classList.add('hidden');
+        }
         const sizeContainer = $('sizeContainer'), targetSizeInput = $('targetSizeInput');
         const resolutionContainer = $('resolutionContainer'), resolutionSelect = $('resolutionSelect');
         const sliderContainer = $('sliderContainer'), sizeSlider = $('sizeSlider'), sliderValue = $('sliderValue');
