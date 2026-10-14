@@ -287,10 +287,13 @@
         const IS_WEBKIT = /iPhone|iPad|iPod/.test(navigator.userAgent)
             || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
             || /^((?!chrome|chromium|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
+        // Newer iPhones are tried in the normal (better quality) mode first. If that hangs, the run is retried once
+        // in 'realtime' mode automatically. For testing: add ?enc=realtime to the address to force the old safe mode.
+        let webkitRealtime = new URLSearchParams(location.search).get('enc') === 'realtime';
         if (IS_WEBKIT && typeof VideoEncoder === 'function') {
             const NativeVideoEncoder = VideoEncoder;
             window.VideoEncoder = class extends NativeVideoEncoder {
-                configure(config) { return super.configure({ ...config, latencyMode: 'realtime' }); }
+                configure(config) { return super.configure(webkitRealtime ? { ...config, latencyMode: 'realtime' } : config); }
             };
         }
 
@@ -592,7 +595,7 @@
 
                 // Quality guard: a big video squeezed into a small file breaks up. Keep enough bits per pixel by stepping the
                 // resolution down instead (frame rate is never touched, nothing is enlarged).
-                const minBpp = 0.08 * CODEC_INFO[codec].factor * (IS_WEBKIT ? 1.4 : 1);   // iPhone/Safari encodes in 'realtime' mode (less efficient), so it needs more bits per pixel
+                const minBpp = 0.08 * CODEC_INFO[codec].factor * (IS_WEBKIT && webkitRealtime ? 1.4 : 1);   // 'realtime' mode (iPhone fallback) is less efficient, so it needs more bits per pixel
                 const bppAt = (w, h) => plan.initialBitrate / (w * h * outFps);
                 if (bppAt(outW, outH) < minBpp) {
                     const aspect = info.width / info.height, portrait = info.width < info.height;
@@ -665,11 +668,13 @@
         let stalled = false;
 
         async function runPassSafe(lib, plan, videoBps, onProgress) {
+            let switchedToRealtime = false;
             for (let attempt = 0; ; attempt++) {
                 stalled = false;
+                const stallLimit = (IS_WEBKIT && !webkitRealtime) ? 20000 : STALL_MS;
                 let lastValue = -1, lastMoveAt = performance.now();
                 const timer = setInterval(() => {
-                    if (activeConversion && performance.now() - lastMoveAt > STALL_MS) {
+                    if (activeConversion && performance.now() - lastMoveAt > stallLimit) {
                         stalled = true;
                         Promise.resolve(activeConversion.cancel()).catch(() => {});
                     }
@@ -682,7 +687,14 @@
                 } catch (error) {
                     activeConversion = null;
                     if (canceled && !stalled) throw error;
-                    if (attempt === 0 && !plan.software) {
+                    if (IS_WEBKIT && !webkitRealtime) {
+                        console.warn('Normal mode failed on WebKit, retrying in realtime mode:', error);
+                        webkitRealtime = true;
+                        switchedToRealtime = true;
+                        progressLabel.textContent = 'Retrying in a safer mode...';
+                        continue;
+                    }
+                    if ((attempt === 0 || (attempt === 1 && switchedToRealtime)) && !plan.software) {
                         console.warn('Pass failed, retrying with the software encoder:', error);
                         plan.software = true;
                         encoderText.textContent = `Encoder: ${CODEC_INFO[codecSelect.value].short} (Software, safer mode)`;
