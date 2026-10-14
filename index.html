@@ -589,6 +589,25 @@
                 }
                 plan.audioBps = audioBps;
                 plan.initialBitrate = clamp(totalBps - audioBps, MIN_VIDEO_BPS, MAX_VIDEO_BPS);
+
+                // Quality guard: a big video squeezed into a small file breaks up. Keep enough bits per pixel by stepping the
+                // resolution down instead (frame rate is never touched, nothing is enlarged).
+                const minBpp = 0.08 * CODEC_INFO[codec].factor;
+                const bppAt = (w, h) => plan.initialBitrate / (w * h * outFps);
+                if (bppAt(outW, outH) < minBpp) {
+                    const aspect = info.width / info.height, portrait = info.width < info.height;
+                    let pick = null;
+                    for (const s of [1440, 1080, 720, 540, 480, 360]) {
+                        if (s >= Math.min(outW, outH)) continue;
+                        const w = portrait ? s : even(s * aspect), h = portrait ? even(s / aspect) : s;
+                        pick = { s, w, h };
+                        if (bppAt(w, h) >= minBpp) break;
+                    }
+                    if (pick) {
+                        if (portrait) baseVideo.width = pick.s; else baseVideo.height = pick.s;
+                        outW = pick.w; outH = pick.h; plan.autoShort = pick.s;
+                    }
+                }
             } else {
                 const level = QUALITY_LEVELS[Number(sizeSlider.value) - 1];
                 let est = outW * outH * outFps * level.bpp * CODEC_INFO[codec].factor;
@@ -774,6 +793,7 @@
 
                 const saved = Math.max(0, (1 - finalSize / original) * 100);
                 let line = finalSize < original ? `${saved.toFixed(1)}% smaller` : 'Not smaller than the original — it is already highly compressed.';
+                if (plan.autoShort) line = `Auto-resized to ${plan.autoShort}p so the picture stays sharp (FPS unchanged). ` + line;
                 if (plan.bySize) {
                     if (hitFloor || finalSize > plan.targetBytes) line = `Could not go lower than this without breaking the video. ` + line;
                 }
