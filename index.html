@@ -592,7 +592,7 @@
 
                 // Quality guard: a big video squeezed into a small file breaks up. Keep enough bits per pixel by stepping the
                 // resolution down instead (frame rate is never touched, nothing is enlarged).
-                const minBpp = 0.08 * CODEC_INFO[codec].factor;
+                const minBpp = 0.08 * CODEC_INFO[codec].factor * (IS_WEBKIT ? 1.4 : 1);   // iPhone/Safari encodes in 'realtime' mode (less efficient), so it needs more bits per pixel
                 const bppAt = (w, h) => plan.initialBitrate / (w * h * outFps);
                 if (bppAt(outW, outH) < minBpp) {
                     const aspect = info.width / info.height, portrait = info.width < info.height;
@@ -735,7 +735,7 @@
                 const lib = await loadLib();
                 const plan = planEncode(lib);
                 const original = selectedFile.size;
-                const maxPasses = plan.bySize ? 4 : 3;
+                const maxPasses = plan.bySize ? (IS_WEBKIT ? 3 : 4) : 3;
                 const expectedPasses = plan.bySize ? 2 : 1;
 
                 // Hardware encoders never hit a bitrate exactly, so the first result is measured and the
@@ -764,7 +764,7 @@
                     if (!best || score(size) < score(best.size)) best = { buffer, size };
 
                     if (plan.bySize) {
-                        if (size <= plan.targetBytes && size >= plan.targetBytes * 0.955) break;   // on target
+                        if (size <= plan.targetBytes && size >= plan.targetBytes * (IS_WEBKIT ? 0.9 : 0.955)) break;   // on target
                         if (bitrate <= MIN_VIDEO_BPS * 1.01 && size > plan.targetBytes) { hitFloor = true; break; }
                         // Everything except the video stream (audio + container) stays the same size.
                         const fixedBytes = (plan.audioBps * mediaInfo.duration) / 8 + size * 0.01;
