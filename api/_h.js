@@ -1,5 +1,5 @@
 'use strict';
-// Shared helpers for the API (not a public route because the file name starts with "_").
+
 const crypto = require('crypto');
 
 const HM = (s, m) => crypto.createHmac('sha256', s).update(m).digest();
@@ -30,7 +30,7 @@ function verify(tok, sec) {
   } catch { return null; }
 }
 
-// ---- license keys: status-0001-AAAA-BBBB-CCCC-DDDD (signed, so no list is needed) ----
+
 const keyTag = (serial, sec) => HM(sec, 'status-key-v1:' + serial).toString('hex').slice(0, 16).toUpperCase();
 function checkKey(input, sec) {
   if (typeof input !== 'string' || input.length > 80) return null;
@@ -79,8 +79,8 @@ function setCookies(res, list) {
 const DID_RE = /^[0-9a-f]{32}$/;
 const devHash = (did) => crypto.createHash('sha256').update('dev:' + did).digest('hex').slice(0, 32);
 
-// ---- database (Upstash Redis over REST; works with the Vercel Marketplace integration) ----
-const mem = new Map(); // only used when TEST_MEMORY_STORE=1 (local tests)
+
+const mem = new Map();
 function dbConfig() {
   if (process.env.TEST_MEMORY_STORE === '1') return { test: true };
   const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
@@ -125,7 +125,7 @@ async function db(cmds) {
   } finally { clearTimeout(to); }
 }
 
-// ---- small helpers ----
+
 function ip(req) {
   const f = req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'] || (req.socket && req.socket.remoteAddress) || '';
   return String(f).split(',')[0].trim();
@@ -149,8 +149,7 @@ function send(res, code, obj) {
   res.end(JSON.stringify(obj));
 }
 
-// ---- session check (used by the page and by the library endpoint) ----
-// Valid only if: signed session cookie + the key is still bound to THIS device + key not revoked.
+
 async function checkSession(req, sec, didFromBody) {
   const ck = cookies(req);
   const s = verify(ck.ses, sec);
