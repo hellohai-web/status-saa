@@ -1,5 +1,5 @@
 'use strict';
-// The (encrypted) page is only sent to a visitor who passed password + key on this device.
+
 const h = require('./_h.js');
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store, max-age=0');
