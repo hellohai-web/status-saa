@@ -1,0 +1,51 @@
+VIDEO COMPRESSOR v20 - size mode: no auto-resize, tighter size, 2s keyframes, bits/pixel/frame shown in result
+
+FOLDERS
+  deploy/  -> upload THIS to Vercel (index.html, vercel.json, api/). Project root must be this folder.
+  source/  -> your real page. PRIVATE, never upload.
+  tools/   -> your tools + secrets (.env). PRIVATE, never upload.
+
+LAYERS
+  1. Password  : checked on the server only. A downloaded copy cannot open it.
+  2. Key       : status-0001-XXXX-XXXX-XXXX-XXXX, one key = one device (first device that uses it owns it).
+  3. Engine    : the video engine file is only sent to a visitor who passed 1 + 2, from a random path.
+
+SET UP ON VERCEL (one time)
+  A. Project > Settings > Environment Variables (tick Production, Preview, Development):
+       APP_SECRET    = (the value in tools/.env)   never change it
+       SITE_PASSWORD = Step 1 password (8+ characters, not case sensitive). NOT stored anywhere in the code.
+       SITE_KEYS     = (optional) your own Step 2 keys, separated by a space, comma or new line. 10+ letters/numbers each,
+                       e.g.   rahsia-ali-2026 rahsia-siti-2026   (dashes/case are ignored when typing)
+  B. Project > Storage > Create Database > Upstash Redis (free) > connect it to this project.
+  C. Redeploy (needed after A and B, and after every change to A).
+  D. Open  https://alfaruk-compres-status-wasap.vercel.app/api/a   -> must show  "ready":true  and  "site_password":"set in Vercel"
+
+CHANGE PASSWORD / KEYS FROM VERCEL (no rebuild, no upload)
+  Password : edit SITE_PASSWORD > Redeploy. Keys are not affected.
+  New key  : ADD it to SITE_KEYS (keep the old ones in the list) > Redeploy. Old keys keep working.
+  Stop a custom key : delete it from SITE_KEYS > Redeploy. (Devices using it are logged out.)
+  The generated keys status-0001-... (tools/keys.csv) ALWAYS keep working, whatever you put in SITE_KEYS.
+  One key = one device for both kinds.
+
+GENERATED KEYS (no redeploy needed)
+  node tools/keys.mjs add 10        make 10 new keys after the last one (saved in tools/keys.csv)
+  node tools/keys.mjs list          show all keys
+  node tools/keys.mjs status 3      key 0003 used? on which device? revoked?   (a full SITE_KEYS key works too)
+  node tools/keys.mjs reset 3       free key 0003 for a NEW device (customer changed phone)
+  node tools/keys.mjs revoke 3      switch key 0003 off   (unrevoke 3 = on again)
+  RULE: never change APP_SECRET. If you change it, ALL generated keys stop working. Keep tools/keys.csv.
+
+WHAT A VISITOR / DOWNLOADER SEES
+  index.html is an empty shell (no title, no text, no page inside, no engine name). The sign-in screen script is only sent
+  to a normal browser page load, and the real page is only sent (encrypted, no-store) after password + key on that device.
+
+AFTER EDITING source/index.html
+  node tools/build.mjs              then upload deploy/ again. (needs Node 18+)
+  Optional: node tools/build.mjs --lib mediabunny.mjs   bundles your own copy of the engine
+  (otherwise the server downloads it once from jsDelivr and keeps it in memory).
+
+BLOCKS (inside the page, tools/guard.js - added automatically by build)
+  - Saved / downloaded copy, file://, or page inside someone else's frame  -> shows "This page only works on the website..."
+  - SingleFile and similar save tools (markers + events), developer tools open (desktop), F12 / Ctrl+S / Ctrl+U / Ctrl+Shift+I/J/C,
+    right-click, printing  -> the page is replaced by a short message.
+  - These are deterrents; the real protection is that the page only reaches a visitor who passed password + key on 1 device.
