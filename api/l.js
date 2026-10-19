@@ -1,5 +1,5 @@
 'use strict';
-// Layer 3: the video engine is only handed out to a visitor who passed layer 1 + 2 on this device.
+
 const fs = require('fs');
 const path = require('path');
 const h = require('./_h.js');
@@ -10,7 +10,7 @@ const SOURCES = [
   'https://cdn.jsdelivr.net/npm/mediabunny@1.61.3/dist/bundles/mediabunny.min.mjs',
   'https://cdn.jsdelivr.net/npm/mediabunny@1.61.3/dist/bundles/mediabunny.mjs',
 ];
-// Only the label/comments that spell out the library name are removed. The code itself is not touched.
+
 function tidy(code) {
   code = code.replace(/^\s*\/\*\*?[\s\S]*?\*\/\s*/, (m) => (/jsdelivr|bundled|original file|mediabunny/i.test(m) ? '' : m));
   return code.replace(/\n?\/\/# sourceMappingURL=.*\s*$/, '\n');
@@ -19,7 +19,7 @@ const looksOk = (c) => typeof c === 'string' && c.length > 20000 && /\bexport\b/
 
 async function getLib() {
   if (cache) return cache;
-  try { // optional: a copy bundled with the site (tools/build.mjs --lib file) so no outside server is needed
+  try { ded
     const c = fs.readFileSync(path.join(__dirname, '_m.dat'), 'utf8');
     if (looksOk(c)) return (cache = tidy(c));
   } catch {}
