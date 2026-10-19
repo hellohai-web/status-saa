@@ -1,5 +1,5 @@
 'use strict';
-// Serves the small sign-in script to a real browser page load only. The public index.html itself is empty.
+
 module.exports = (req, res) => {
   res.setHeader('Cache-Control', 'no-store, max-age=0');
   res.setHeader('X-Content-Type-Options', 'nosniff');
