@@ -5,7 +5,7 @@ function envPw() {
   const p = String(process.env.SITE_PASSWORD || '').trim().toLowerCase();
   return p.length >= 8 ? p : null;
 }
-// The password lives ONLY in Vercel (SITE_PASSWORD). Nothing is stored in the code.
+
 function pwOk(pw) {
   if (typeof pw !== 'string' || pw.length > 100) return false;
   const e = envPw();
@@ -48,7 +48,7 @@ module.exports = async (req, res) => {
       return h.send(res, 200, { ok: true, t1: h.sign({ s: 1, e: t + 900 }, sec) });
     }
 
-    // ---------- Layer 2: key, one key = one device ----------
+  
     if (b.a === 'key') {
       if (!h.dbConfig()) return h.send(res, 200, { ok: false, err: 'cfg', detail: 'Database is not connected yet (Vercel Storage > Upstash Redis).' });
       if (!(await h.rateLimit(req, 'key', 12, 600))) return h.send(res, 429, { ok: false, err: 'many' });
@@ -78,7 +78,7 @@ module.exports = async (req, res) => {
       return h.send(res, 200, { ok: true, pk: h.pageKey(sec).toString('base64'), did });
     }
 
-    // ---------- Returning visitor: session still valid on this device? ----------
+
     if (b.a === 'ses') {
       if (!h.dbConfig()) return h.send(res, 200, { ok: false, err: 'cfg', detail: 'Database is not connected yet (Vercel Storage > Upstash Redis).' });
       const s = await h.checkSession(req, sec, b.did);
@@ -88,7 +88,7 @@ module.exports = async (req, res) => {
       return h.send(res, 200, { ok: true, pk: h.pageKey(sec).toString('base64'), did: s.did });
     }
 
-    // ---------- Owner tools (tools/keys.mjs) ----------
+   
     if (b.a === 'adm') {
       if (!(await h.rateLimit(req, 'adm', 30, 600))) return h.send(res, 429, { ok: false, err: 'many' });
       if (!h.safeEq(req.headers['x-admin'] || '', h.adminToken(sec))) return h.send(res, 403, { ok: false, err: 'admin' });
